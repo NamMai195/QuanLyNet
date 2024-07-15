@@ -10,5 +10,7 @@ package com.netsys.dao;
  */
 public class NewClass {
      anh yeu em nhiu nam
+             met 
+             hihihii
             
 }
