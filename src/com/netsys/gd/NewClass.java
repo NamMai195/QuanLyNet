@@ -9,5 +9,5 @@ package com.netsys.gd;
  * @author DELL
  */
 public class NewClass {
-    
+    con cac ne that
 }
