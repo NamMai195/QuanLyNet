@@ -9,11 +9,6 @@ package com.netsys.dao;
  * @author ASUS
  */
 public class NewClass {
-    sdfsfsdfsf
-            hhdhsfhav á a 
-                    ạdashdas
-                            dfssdfsfsf
-                            hádv
-                                    áddhasda 
+     anh yeu em nhiu nam
             
 }
