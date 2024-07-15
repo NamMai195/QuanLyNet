@@ -10,4 +10,11 @@ package com.netsys.gd;
  */
 public class NewClass {
     con cac ne that
+            
+            
+            
+     một ngày mới
+             
+             
+             đcm tự lực cánh sinh :))
 }
