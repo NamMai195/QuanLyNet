@@ -33,4 +33,12 @@ public class main {
                 System.out.println(kh.isRole());
             }
     }
+<<<<<<< Upstream, based on origin/main
 }
+=======
+}
+
+
+cái cc
+>>>>>>> fdbb240 demo 1
+cái lolll
