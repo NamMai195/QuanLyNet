@@ -8,11 +8,6 @@ package com.netsys.gd;
  *
  * @author ASUS
  */
-public class demo3 {
-    asdhhadshasd
-            ưetwretfwrfgregretdg
-            rrdwfgvdvdffsfs
-                    àdsdfadfstegefgegg 
-                    }ẻtgregegergegg
-                            thaat an lol
-bu bubububububbu
+class ContentAlignment {
+    
+}
