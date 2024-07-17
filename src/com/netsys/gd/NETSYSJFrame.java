@@ -79,9 +79,10 @@ public class NETSYSJFrame extends javax.swing.JFrame {
 
         jToolBar1.setRollover(true);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/Icon Application/Log out.png"))); // NOI18N
+        jButton1.setBackground(new java.awt.Color(153, 153, 255));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon("D:\\Java2\\anhquanlynet\\6.jpg")); // NOI18N
         jButton1.setText("Đăng xuất");
-        jButton1.setFocusable(false);
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -91,7 +92,9 @@ public class NETSYSJFrame extends javax.swing.JFrame {
         });
         jToolBar1.add(jButton1);
 
-        btnkt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/Icon Application/Delete.png"))); // NOI18N
+        btnkt.setBackground(new java.awt.Color(153, 153, 255));
+        btnkt.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnkt.setIcon(new javax.swing.ImageIcon("D:\\Java2\\anhquanlynet\\5.jpg")); // NOI18N
         btnkt.setText("Kết thúc");
         btnkt.setFocusable(false);
         btnkt.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -103,7 +106,9 @@ public class NETSYSJFrame extends javax.swing.JFrame {
         });
         jToolBar1.add(btnkt);
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/Icon Application/Address book.png"))); // NOI18N
+        jButton4.setBackground(new java.awt.Color(153, 153, 255));
+        jButton4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon("D:\\Java2\\anhquanlynet\\7.png")); // NOI18N
         jButton4.setText("Chuyên đề");
         jButton4.setFocusable(false);
         jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -115,7 +120,9 @@ public class NETSYSJFrame extends javax.swing.JFrame {
         });
         jToolBar1.add(jButton4);
 
-        butNH.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/Icon Application/User.png"))); // NOI18N
+        butNH.setBackground(new java.awt.Color(153, 153, 255));
+        butNH.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        butNH.setIcon(new javax.swing.ImageIcon("D:\\Java2\\anhquanlynet\\4.jpg")); // NOI18N
         butNH.setText("Người học");
         butNH.setFocusable(false);
         butNH.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -127,7 +134,9 @@ public class NETSYSJFrame extends javax.swing.JFrame {
         });
         jToolBar1.add(butNH);
 
-        btnKH.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/Icon Application/Task list.png"))); // NOI18N
+        btnKH.setBackground(new java.awt.Color(153, 153, 255));
+        btnKH.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnKH.setIcon(new javax.swing.ImageIcon("D:\\Java2\\anhquanlynet\\3.jpg")); // NOI18N
         btnKH.setText("Khóa học");
         btnKH.setFocusable(false);
         btnKH.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -139,7 +148,9 @@ public class NETSYSJFrame extends javax.swing.JFrame {
         });
         jToolBar1.add(btnKH);
 
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/Icon Application/Address book.png"))); // NOI18N
+        jButton8.setBackground(new java.awt.Color(153, 153, 255));
+        jButton8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jButton8.setIcon(new javax.swing.ImageIcon("D:\\Java2\\anhquanlynet\\2.1.jpg")); // NOI18N
         jButton8.setText("Hướng dẫn");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,7 +159,9 @@ public class NETSYSJFrame extends javax.swing.JFrame {
         });
         jToolBar1.add(jButton8);
 
-        butHV.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/Icon Application/Users.png"))); // NOI18N
+        butHV.setBackground(new java.awt.Color(153, 153, 255));
+        butHV.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        butHV.setIcon(new javax.swing.ImageIcon("D:\\Java2\\anhquanlynet\\1.jpg")); // NOI18N
         butHV.setText("Học viên");
         butHV.setFocusable(false);
         butHV.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -349,18 +362,20 @@ public class NETSYSJFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 677, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 677, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(44, 44, 44)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(81, 81, 81)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
