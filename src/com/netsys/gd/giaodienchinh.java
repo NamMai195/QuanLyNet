@@ -39,25 +39,32 @@ public class giaodienchinh extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jMenu4 = new javax.swing.JMenu();
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 32767));
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu5 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenu6 = new javax.swing.JMenu();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
+        jMenu7 = new javax.swing.JMenu();
+        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuItem9 = new javax.swing.JMenuItem();
+        jMenu8 = new javax.swing.JMenu();
+        jMenuItem10 = new javax.swing.JMenuItem();
+        jMenuItem11 = new javax.swing.JMenuItem();
 
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
@@ -75,180 +82,155 @@ public class giaodienchinh extends javax.swing.JFrame {
         jRadioButtonMenuItem1.setSelected(true);
         jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
 
+        jMenu4.setText("jMenu4");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(204, 204, 204));
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 255));
+        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.setLayout(new java.awt.GridLayout());
 
-        jLabel1.setText("Net SyS");
+        jButton2.setBackground(new java.awt.Color(0, 0, 0));
+        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(204, 255, 255));
+        jButton2.setText("Mở Máy");
+        jPanel2.add(jButton2);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(801, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        jButton3.setBackground(new java.awt.Color(0, 0, 0));
+        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(204, 255, 255));
+        jButton3.setText("Máy Tính");
+        jPanel2.add(jButton3);
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton1.setText("Hệ thống");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButton6.setBackground(new java.awt.Color(0, 0, 0));
+        jButton6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton6.setForeground(new java.awt.Color(204, 255, 255));
+        jButton6.setText("Giới thiệu");
+        jPanel2.add(jButton6);
+
+        jButton7.setBackground(new java.awt.Color(0, 0, 0));
+        jButton7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton7.setForeground(new java.awt.Color(204, 255, 255));
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/netsys/icon_app/Call.png"))); // NOI18N
+        jButton7.setText("Hổ Trợ");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButton7ActionPerformed(evt);
             }
         });
+        jPanel2.add(jButton7);
 
-        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton2.setText("Chức năng");
-
-        jButton3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton3.setText("Bảng giá");
-
-        jButton4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton4.setText("Báo cáo");
-
-        jButton5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton5.setText("Hướng dẫn");
-
-        jButton6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton6.setText("Giới thiệu");
-
-        jButton7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton7.setText("Hộ trợ");
-
-        jButton8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jButton8.setBackground(new java.awt.Color(0, 0, 0));
+        jButton8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton8.setForeground(new java.awt.Color(204, 255, 255));
+        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/netsys/icon_app/Exit.png"))); // NOI18N
         jButton8.setText("Đăng xuất");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
             }
         });
+        jPanel2.add(jButton8);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2)
-                .addGap(18, 18, 18)
-                .addComponent(jButton3)
-                .addGap(18, 18, 18)
-                .addComponent(jButton4)
-                .addGap(18, 18, 18)
-                .addComponent(jButton5)
-                .addGap(18, 18, 18)
-                .addComponent(jButton6)
-                .addGap(18, 18, 18)
-                .addComponent(jButton7)
-                .addGap(18, 18, 18)
-                .addComponent(jButton8)
-                .addGap(31, 31, 31))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5)
-                    .addComponent(jButton6)
-                    .addComponent(jButton7)
-                    .addComponent(jButton8))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanel3.setBackground(new java.awt.Color(204, 204, 204));
-
-        jButton9.setText("Máy trạm");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setBackground(new java.awt.Color(0, 0, 0));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(204, 255, 255));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/netsys/icon_app/User.png"))); // NOI18N
+        jButton1.setText("Nhân Viên");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
+        jPanel2.add(jButton1);
 
-        jButton10.setText("Hội viên");
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton11.setText("Dịch vụ");
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/netsys/rs/logochaorise.jpg"))); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 780));
 
-        jButton12.setText("Nhật ký giao dịch");
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
+        jMenuBar2.setBackground(new java.awt.Color(102, 102, 255));
+        jMenuBar2.setBorder(null);
+
+        jMenu5.setText("Hệ Thống");
+
+        jMenuItem3.setText("Đăng Xuất");
+        jMenu5.add(jMenuItem3);
+
+        jMenuItem2.setText("Đổi Mật Khẩu");
+        jMenu5.add(jMenuItem2);
+
+        jMenuItem4.setText("Thoát");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton12ActionPerformed(evt);
+                jMenuItem4ActionPerformed(evt);
             }
         });
+        jMenu5.add(jMenuItem4);
 
-        jButton13.setText("Nhật ký phòng máy");
+        jMenuBar2.add(jMenu5);
 
-        jButton14.setText("Báo cáo doanh số");
+        jMenu6.setText("Quản Lý");
 
-        jButton15.setText("Cấm ứng dụng");
+        jMenuItem5.setText("Nhân Viên");
+        jMenu6.add(jMenuItem5);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton9)
-                .addGap(18, 18, 18)
-                .addComponent(jButton10)
-                .addGap(18, 18, 18)
-                .addComponent(jButton11)
-                .addGap(18, 18, 18)
-                .addComponent(jButton12)
-                .addGap(18, 18, 18)
-                .addComponent(jButton13)
-                .addGap(18, 18, 18)
-                .addComponent(jButton14)
-                .addGap(18, 18, 18)
-                .addComponent(jButton15)
-                .addGap(45, 45, 45))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(7, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton9)
-                    .addComponent(jButton10)
-                    .addComponent(jButton11)
-                    .addComponent(jButton12)
-                    .addComponent(jButton13)
-                    .addComponent(jButton14)
-                    .addComponent(jButton15))
-                .addContainerGap())
-        );
+        jMenuItem6.setText("Thức Ăn");
+        jMenu6.add(jMenuItem6);
+
+        jMenuItem7.setText("Máy Tính");
+        jMenu6.add(jMenuItem7);
+
+        jMenuBar2.add(jMenu6);
+
+        jMenu7.setText("Thống Kê");
+
+        jMenuItem8.setText("Doanh Thu");
+        jMenu7.add(jMenuItem8);
+
+        jMenuItem9.setText("Giờ Sử Dụng");
+        jMenu7.add(jMenuItem9);
+
+        jMenuBar2.add(jMenu7);
+
+        jMenu8.setText("Trợ Giúp");
+
+        jMenuItem10.setText("Giới Thiệu");
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem10ActionPerformed(evt);
+            }
+        });
+        jMenu8.add(jMenuItem10);
+
+        jMenuItem11.setText("Hướng Dẫn Sử Dụng");
+        jMenu8.add(jMenuItem11);
+
+        jMenuBar2.add(jMenu8);
+
+        setJMenuBar(jMenuBar2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(305, 305, 305))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(9, 9, 9)
+                .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(305, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -258,24 +240,22 @@ public class giaodienchinh extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton8ActionPerformed
 
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton12ActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
      JButton button = new JButton("Click Me");
 button.setIcon(new ImageIcon(""));
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-    JButton button = new JButton();
-try {
-    Image img = ImageIO.read(getClass().getResource("/resources/gd.hethong"));
-    button.setIcon(new ImageIcon(img));
-} catch (Exception ex) {
-    System.out.println(ex);
-}
-    }//GEN-LAST:event_jButton9ActionPerformed
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -313,31 +293,38 @@ try {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.Box.Filler filler1;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem10;
+    private javax.swing.JMenuItem jMenuItem11;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     // End of variables declaration//GEN-END:variables
 }

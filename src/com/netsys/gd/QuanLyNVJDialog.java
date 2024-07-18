@@ -106,7 +106,7 @@ public class QuanLyNVJDialog extends javax.swing.JDialog {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 676, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 924, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -209,7 +209,7 @@ public class QuanLyNVJDialog extends javax.swing.JDialog {
                                     .addGroup(jPanel4Layout.createSequentialGroup()
                                         .addGap(94, 94, 94)
                                         .addComponent(jButton5)))
-                                .addGap(0, 19, Short.MAX_VALUE))
+                                .addGap(0, 267, Short.MAX_VALUE))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGap(90, 90, 90)
                                 .addComponent(jButton2)
@@ -264,7 +264,7 @@ public class QuanLyNVJDialog extends javax.swing.JDialog {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 686, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 934, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
