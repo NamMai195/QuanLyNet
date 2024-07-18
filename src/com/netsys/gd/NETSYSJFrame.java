@@ -81,7 +81,6 @@ public class NETSYSJFrame extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(153, 153, 255));
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon("D:\\Java2\\anhquanlynet\\6.jpg")); // NOI18N
         jButton1.setText("Đăng xuất");
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -94,7 +93,6 @@ public class NETSYSJFrame extends javax.swing.JFrame {
 
         btnkt.setBackground(new java.awt.Color(153, 153, 255));
         btnkt.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnkt.setIcon(new javax.swing.ImageIcon("D:\\Java2\\anhquanlynet\\5.jpg")); // NOI18N
         btnkt.setText("Kết thúc");
         btnkt.setFocusable(false);
         btnkt.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -108,7 +106,6 @@ public class NETSYSJFrame extends javax.swing.JFrame {
 
         jButton4.setBackground(new java.awt.Color(153, 153, 255));
         jButton4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton4.setIcon(new javax.swing.ImageIcon("D:\\Java2\\anhquanlynet\\7.png")); // NOI18N
         jButton4.setText("Chuyên đề");
         jButton4.setFocusable(false);
         jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -122,7 +119,6 @@ public class NETSYSJFrame extends javax.swing.JFrame {
 
         butNH.setBackground(new java.awt.Color(153, 153, 255));
         butNH.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        butNH.setIcon(new javax.swing.ImageIcon("D:\\Java2\\anhquanlynet\\4.jpg")); // NOI18N
         butNH.setText("Người học");
         butNH.setFocusable(false);
         butNH.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -136,7 +132,6 @@ public class NETSYSJFrame extends javax.swing.JFrame {
 
         btnKH.setBackground(new java.awt.Color(153, 153, 255));
         btnKH.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnKH.setIcon(new javax.swing.ImageIcon("D:\\Java2\\anhquanlynet\\3.jpg")); // NOI18N
         btnKH.setText("Khóa học");
         btnKH.setFocusable(false);
         btnKH.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -150,7 +145,6 @@ public class NETSYSJFrame extends javax.swing.JFrame {
 
         jButton8.setBackground(new java.awt.Color(153, 153, 255));
         jButton8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton8.setIcon(new javax.swing.ImageIcon("D:\\Java2\\anhquanlynet\\2.1.jpg")); // NOI18N
         jButton8.setText("Hướng dẫn");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -161,7 +155,6 @@ public class NETSYSJFrame extends javax.swing.JFrame {
 
         butHV.setBackground(new java.awt.Color(153, 153, 255));
         butHV.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        butHV.setIcon(new javax.swing.ImageIcon("D:\\Java2\\anhquanlynet\\1.jpg")); // NOI18N
         butHV.setText("Học viên");
         butHV.setFocusable(false);
         butHV.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -175,7 +168,6 @@ public class NETSYSJFrame extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
-        trangthai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/Icon Application/Refresh.png"))); // NOI18N
         trangthai.setText("Thông tin trạng thái");
 
         lbtimer.setText("timer");
@@ -204,7 +196,6 @@ public class NETSYSJFrame extends javax.swing.JFrame {
 
         jMenu1.setText("Hệ Thống");
 
-        btndmk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/Icon Application/Refresh.png"))); // NOI18N
         btndmk.setText("Đổi mật khẩu");
         btndmk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -214,7 +205,6 @@ public class NETSYSJFrame extends javax.swing.JFrame {
         jMenu1.add(btndmk);
 
         jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_0, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/Icon Application/Exit.png"))); // NOI18N
         jMenuItem2.setText("Đăng xuất");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -224,7 +214,6 @@ public class NETSYSJFrame extends javax.swing.JFrame {
         jMenu1.add(jMenuItem2);
 
         jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F10, 0));
-        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/Icon Application/Delete.png"))); // NOI18N
         jMenuItem3.setText("Kết thúc");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -238,7 +227,6 @@ public class NETSYSJFrame extends javax.swing.JFrame {
         jMenu2.setText("Quản lý");
 
         btncd.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        btncd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/Icon Application/Task list.png"))); // NOI18N
         btncd.setText("Chuyên đề");
         btncd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -248,7 +236,6 @@ public class NETSYSJFrame extends javax.swing.JFrame {
         jMenu2.add(btncd);
 
         btnkh.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F2, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        btnkh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/Icon Application/Numbered list.png"))); // NOI18N
         btnkh.setText("Khóa học");
         btnkh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -258,7 +245,6 @@ public class NETSYSJFrame extends javax.swing.JFrame {
         jMenu2.add(btnkh);
 
         btnNH.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F3, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        btnNH.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/Icon Application/Unknown person.png"))); // NOI18N
         btnNH.setText("Người học");
         btnNH.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -268,7 +254,6 @@ public class NETSYSJFrame extends javax.swing.JFrame {
         jMenu2.add(btnNH);
 
         btnHV.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        btnHV.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/Icon Application/User.png"))); // NOI18N
         btnHV.setText("Học Viên");
         btnHV.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -279,7 +264,6 @@ public class NETSYSJFrame extends javax.swing.JFrame {
         jMenu2.add(jSeparator1);
 
         btnNV.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F5, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        btnNV.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/Icon Application/Users.png"))); // NOI18N
         btnNV.setText("Nhân viên");
         btnNV.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -293,7 +277,6 @@ public class NETSYSJFrame extends javax.swing.JFrame {
         jMenu3.setText("Thống kê");
 
         btnBD.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
-        btnBD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/Icon Application/Task list.png"))); // NOI18N
         btnBD.setText("Bảng điểm");
         btnBD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -304,7 +287,6 @@ public class NETSYSJFrame extends javax.swing.JFrame {
         jMenu3.add(jSeparator2);
 
         btnLNH.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F2, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
-        btnLNH.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/Icon Application/List.png"))); // NOI18N
         btnLNH.setText("Lượng người học");
         btnLNH.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -314,7 +296,6 @@ public class NETSYSJFrame extends javax.swing.JFrame {
         jMenu3.add(btnLNH);
 
         btnDCD.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F3, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
-        btnDCD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/Icon Application/Bar chart.png"))); // NOI18N
         btnDCD.setText("Điểm chuyên đề");
         btnDCD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -324,7 +305,6 @@ public class NETSYSJFrame extends javax.swing.JFrame {
         jMenu3.add(btnDCD);
 
         btnDTHU.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
-        btnDTHU.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/Icon Application/Statistics.png"))); // NOI18N
         btnDTHU.setText("Doanh thu");
         btnDTHU.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -338,12 +318,10 @@ public class NETSYSJFrame extends javax.swing.JFrame {
         jMenu4.setText("Trợ giúp");
 
         btnhdsd.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, 0));
-        btnhdsd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/Icon Application/Refresh.png"))); // NOI18N
         btnhdsd.setText("Hướng dẫn sử dụng");
         jMenu4.add(btnhdsd);
         jMenu4.add(jSeparator3);
 
-        btnGTSP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/Icon Application/Home.png"))); // NOI18N
         btnGTSP.setText("Giới thiệu sản phẩm");
         btnGTSP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -360,7 +338,7 @@ public class NETSYSJFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 677, Short.MAX_VALUE)
+            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
