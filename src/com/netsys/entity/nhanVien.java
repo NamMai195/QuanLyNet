@@ -14,6 +14,8 @@ public class nhanVien {
     private String username;
     private String pass;
     private boolean role;
+    private String sdt;
+    private String hinh;
 
     public int getManv() {
         return manv;
@@ -55,6 +57,22 @@ public class nhanVien {
         this.role = role;
     }
 
+    public String getSdt() {
+        return sdt;
+    }
+
+    public void setSdt(String sdt) {
+        this.sdt = sdt;
+    }
+
+    public String getHinh() {
+        return hinh;
+    }
+
+    public void setHinh(String hinh) {
+        this.hinh = hinh;
+    }
+   
   
     
 }

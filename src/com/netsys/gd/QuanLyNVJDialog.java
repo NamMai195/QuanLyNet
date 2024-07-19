@@ -37,6 +37,7 @@ private List<nhanVien> Listnv=dao.selectAll();
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel2 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
@@ -69,6 +70,8 @@ private List<nhanVien> Listnv=dao.selectAll();
         btnff = new javax.swing.JButton();
         btnnn = new javax.swing.JButton();
         btnn = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        txtsdt = new javax.swing.JTextField();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -149,9 +152,11 @@ private List<nhanVien> Listnv=dao.selectAll();
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jLabel5.setText("Chức Vụ:");
 
+        buttonGroup1.add(cbbtp);
         cbbtp.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         cbbtp.setText("Trưởng Phòng");
 
+        buttonGroup1.add(cbbncv);
         cbbncv.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         cbbncv.setText("Nhân Viên");
 
@@ -201,6 +206,11 @@ private List<nhanVien> Listnv=dao.selectAll();
 
         butlammoi.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         butlammoi.setText("Làm Mới");
+        butlammoi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butlammoiActionPerformed(evt);
+            }
+        });
         jPanel7.add(butlammoi);
 
         btnf.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -239,6 +249,9 @@ private List<nhanVien> Listnv=dao.selectAll();
         });
         jPanel8.add(btnn);
 
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel7.setText("Số Điện Thoại:");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -247,34 +260,36 @@ private List<nhanVien> Listnv=dao.selectAll();
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(353, 353, 353))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+            .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(72, 72, 72)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel2))
-                                .addGap(58, 58, 58)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txttennv, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addComponent(cbbtp)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(cbbncv))
-                                    .addComponent(txtmatkhau)
-                                    .addComponent(txttendangnhap))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(butuphinh, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel7))
+                        .addGap(58, 58, 58)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jPanel4Layout.createSequentialGroup()
+                                    .addComponent(cbbtp)
+                                    .addGap(109, 109, 109)
+                                    .addComponent(cbbncv))
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txttennv, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtmatkhau)
+                                    .addComponent(txttendangnhap)))
+                            .addComponent(txtsdt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(butuphinh, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(88, 88, 88))
         );
         jPanel4Layout.setVerticalGroup(
@@ -299,17 +314,21 @@ private List<nhanVien> Listnv=dao.selectAll();
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(34, 34, 34)
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(50, 50, 50)
+                .addGap(45, 45, 45)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbbtp)
-                    .addComponent(cbbncv)
-                    .addComponent(jLabel5)
+                    .addComponent(jLabel7)
+                    .addComponent(txtsdt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(butuphinh))
-                .addGap(110, 110, 110)
+                .addGap(39, 39, 39)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(cbbtp)
+                    .addComponent(cbbncv))
+                .addGap(54, 54, 54)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 222, Short.MAX_VALUE))
+                .addGap(0, 218, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Thông Tin", jPanel4);
@@ -398,7 +417,7 @@ private List<nhanVien> Listnv=dao.selectAll();
        if(kttt()){
          them();
          fillTable();
-//         clear();
+         clear();
          Listnv=dao.selectAll();
      }
     }//GEN-LAST:event_butthemActionPerformed
@@ -406,6 +425,10 @@ private List<nhanVien> Listnv=dao.selectAll();
     private void butsuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butsuaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_butsuaActionPerformed
+
+    private void butlammoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butlammoiActionPerformed
+      clear();
+    }//GEN-LAST:event_butlammoiActionPerformed
 
     /**
      * @param args the command line arguments
@@ -457,6 +480,7 @@ private List<nhanVien> Listnv=dao.selectAll();
     private javax.swing.JButton butlammoi;
     private javax.swing.JButton butsua;
     private javax.swing.JButton butthem;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton butuphinh;
     private javax.swing.JButton butxoa;
     private javax.swing.JRadioButton cbbncv;
@@ -468,6 +492,7 @@ private List<nhanVien> Listnv=dao.selectAll();
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -481,6 +506,7 @@ private List<nhanVien> Listnv=dao.selectAll();
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTable tblnv;
     private javax.swing.JTextField txtmatkhau;
+    private javax.swing.JTextField txtsdt;
     private javax.swing.JTextField txttendangnhap;
     private javax.swing.JTextField txttennv;
     // End of variables declaration//GEN-END:variables
@@ -561,5 +587,12 @@ private List<nhanVien> Listnv=dao.selectAll();
         } catch (Exception e) {
             TBBOX.alert(this,"ĐÃ Xãy ra lỗi");
         }
+    }
+    private void clear(){
+       txttennv.setText("");
+       txttendangnhap.setText("");
+       txtmatkhau.setText("");
+       buttonGroup1.clearSelection();
+       txtsdt.setText("");
     }
 }

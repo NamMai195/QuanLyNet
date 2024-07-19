@@ -15,19 +15,19 @@ import java.sql.ResultSet;
  * @author Nam
  */
 public class NhanVienDAO extends NETSYSDAO<nhanVien, Integer>{
-    final  String INSERT_SQL="INSERT INTO NhanVien(tennv,username,pass,role) VALUES(?,?,?,?)";
-    final String UPDATE_SQL="UPDATE NhanVien SET tennv=?,username=?,pass=?,role=? Where manv=?";
+    final  String INSERT_SQL="INSERT INTO NhanVien(tennv,username,pass,role,sdt,hinh) VALUES(?,?,?,?,?,?)";
+    final String UPDATE_SQL="UPDATE NhanVien SET tennv=?,username=?,pass=?,role=?,sdt=?,hinh=? Where manv=?";
     final String DELETE_SQL="DELETE FROM NhanVien WHERE MaNV=?";
     final String SELECT_ALL_SQL="SELECT * FROM NhanVien";
     final String SELECT_BY_ID_SQL="SELECT * FROM NhanVien WHERE MaNV=?";
     @Override
     public void insert(nhanVien entity) {
-        JdbcHelper.update(INSERT_SQL,entity.getTenNV(),entity.getUsername(),entity.getPass(),entity.isRole());
+        JdbcHelper.update(INSERT_SQL,entity.getTenNV(),entity.getUsername(),entity.getPass(),entity.isRole(),entity.getSdt(),entity.getHinh());
     }
 
     @Override
     public void update(nhanVien entity) {
-        JdbcHelper.update(UPDATE_SQL,entity.getTenNV(),entity.getUsername(),entity.getPass(),entity.isRole(),entity.getManv());
+        JdbcHelper.update(UPDATE_SQL,entity.getTenNV(),entity.getUsername(),entity.getPass(),entity.isRole(),entity.getSdt(),entity.getHinh(),entity.getManv());
     }
 
     @Override
@@ -63,6 +63,8 @@ public class NhanVienDAO extends NETSYSDAO<nhanVien, Integer>{
                 entity.setUsername(rs.getString("username"));
                 entity.setPass(rs.getString("pass"));
                 entity.setRole(rs.getBoolean("role"));
+                entity.setSdt(rs.getString("sdt"));
+                entity.setHinh(rs.getString("hinh"));
                 list.add(entity);
             }
             rs.getStatement().getConnection().close();

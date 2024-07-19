@@ -15,22 +15,22 @@ public class main {
     public static void main(String[] args) {
         NhanVienDAO nvdao=new NhanVienDAO();
         nhanVien nv=new nhanVien();
-//        nv.setTenNV("mai văn nam");
-//        nv.setUsername("maivannam");
-//        nv.setPass("123");
-//        nv.setRole(true);
-//        nvdao.insert(nv);
-        List<nhanVien> list=nvdao.selectAll();
-       for(nhanVien kh:list){
-                System.out.println(kh.getTenNV());
-                System.out.println(kh.isRole());
-                
-            }
-        System.out.println("hettt");
-      nvdao.delete(5);
-      for(nhanVien kh:list){
-                System.out.println(kh.getTenNV());
-                System.out.println(kh.isRole());
-            }
+        nv.setTenNV("mai văn nam");
+        nv.setUsername("maivannam");
+        nv.setPass("123");
+        nv.setRole(true);
+        nvdao.insert(nv);
+//        List<nhanVien> list=nvdao.selectAll();
+//       for(nhanVien kh:list){
+//                System.out.println(kh.getTenNV());
+//                System.out.println(kh.isRole());
+//                
+//            }
+//        System.out.println("hettt");
+//      nvdao.delete(5);
+//      for(nhanVien kh:list){
+//                System.out.println(kh.getTenNV());
+//                System.out.println(kh.isRole());
+//            }
     }
 }
