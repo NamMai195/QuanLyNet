@@ -16,6 +16,7 @@ public class QLThucAnJDialog extends javax.swing.JDialog {
     public QLThucAnJDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

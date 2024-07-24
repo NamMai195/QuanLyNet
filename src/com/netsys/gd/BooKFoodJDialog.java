@@ -16,6 +16,7 @@ public class BooKFoodJDialog extends javax.swing.JDialog {
     public BooKFoodJDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

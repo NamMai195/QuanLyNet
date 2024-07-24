@@ -16,6 +16,7 @@ public class BookPCJDialog extends javax.swing.JDialog {
     public BookPCJDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

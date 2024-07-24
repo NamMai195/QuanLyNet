@@ -134,7 +134,7 @@ private List<nhanVien> Listnv=dao.selectAll();
             tblnv.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 870, -1));
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 870, 530));
         jPanel3.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 540, 30));
 
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/netsys/icon_app/Search.png"))); // NOI18N

@@ -4,6 +4,7 @@
  */
 package com.netsys.gd;
 
+import com.netsys.utlis.TBBOX;
 import java.awt.Button;
 import java.awt.Image;
 import javax.imageio.ImageIO;
@@ -21,6 +22,10 @@ public class NetSySJframe extends javax.swing.JFrame {
      */
     public NetSySJframe() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        new ChaoJDialog(this, true).setVisible(true);
+        new DangnhapJDialog(this, true).setVisible(true);
+        new ChaoJDialog(this, true).setVisible(true);
     }
 
     /**
@@ -41,11 +46,11 @@ public class NetSySJframe extends javax.swing.JFrame {
         jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jPanel2 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        butnhanvien = new javax.swing.JButton();
+        butmt = new javax.swing.JButton();
+        butta = new javax.swing.JButton();
+        butkh = new javax.swing.JButton();
+        buthoadon = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -59,17 +64,17 @@ public class NetSySJframe extends javax.swing.JFrame {
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu5 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        menudmk = new javax.swing.JMenuItem();
+        menuthoat = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
+        menunv = new javax.swing.JMenuItem();
+        menuta = new javax.swing.JMenuItem();
+        menumt = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
+        menuDT = new javax.swing.JMenuItem();
+        menuGSD = new javax.swing.JMenuItem();
         jMenu8 = new javax.swing.JMenu();
-        jMenuItem10 = new javax.swing.JMenuItem();
+        menugt = new javax.swing.JMenuItem();
         jMenuItem11 = new javax.swing.JMenuItem();
 
         jCheckBoxMenuItem1.setSelected(true);
@@ -97,55 +102,65 @@ public class NetSySJframe extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel2.setLayout(new java.awt.GridLayout(1, 0));
 
-        jButton2.setBackground(new java.awt.Color(0, 0, 0));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(204, 255, 255));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/netsys/icon_app/User.png"))); // NOI18N
-        jButton2.setText("Nhân Viên");
-        jPanel2.add(jButton2);
-
-        jButton3.setBackground(new java.awt.Color(0, 0, 0));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(204, 255, 255));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/netsys/icon_app/maytinh.png"))); // NOI18N
-        jButton3.setText("Máy Tính");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        butnhanvien.setBackground(new java.awt.Color(0, 0, 0));
+        butnhanvien.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        butnhanvien.setForeground(new java.awt.Color(204, 255, 255));
+        butnhanvien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/netsys/icon_app/User.png"))); // NOI18N
+        butnhanvien.setText("Nhân Viên");
+        butnhanvien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                butnhanvienActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton3);
+        jPanel2.add(butnhanvien);
 
-        jButton6.setBackground(new java.awt.Color(0, 0, 0));
-        jButton6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(204, 255, 255));
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/netsys/icon_app/thuan.png"))); // NOI18N
-        jButton6.setText("Thức Ăn");
-        jPanel2.add(jButton6);
-
-        jButton7.setBackground(new java.awt.Color(0, 0, 0));
-        jButton7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(204, 255, 255));
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/netsys/icon_app/Users.png"))); // NOI18N
-        jButton7.setText("Khách Hàng");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        butmt.setBackground(new java.awt.Color(0, 0, 0));
+        butmt.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        butmt.setForeground(new java.awt.Color(204, 255, 255));
+        butmt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/netsys/icon_app/maytinh.png"))); // NOI18N
+        butmt.setText("Máy Tính");
+        butmt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                butmtActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton7);
+        jPanel2.add(butmt);
 
-        jButton8.setBackground(new java.awt.Color(0, 0, 0));
-        jButton8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton8.setForeground(new java.awt.Color(204, 255, 255));
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/netsys/icon_app/Price list.png"))); // NOI18N
-        jButton8.setText("Hóa Đơn");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        butta.setBackground(new java.awt.Color(0, 0, 0));
+        butta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        butta.setForeground(new java.awt.Color(204, 255, 255));
+        butta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/netsys/icon_app/thuan.png"))); // NOI18N
+        butta.setText("Thức Ăn");
+        butta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                buttaActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton8);
+        jPanel2.add(butta);
+
+        butkh.setBackground(new java.awt.Color(0, 0, 0));
+        butkh.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        butkh.setForeground(new java.awt.Color(204, 255, 255));
+        butkh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/netsys/icon_app/Users.png"))); // NOI18N
+        butkh.setText("Khách Hàng");
+        butkh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butkhActionPerformed(evt);
+            }
+        });
+        jPanel2.add(butkh);
+
+        buthoadon.setBackground(new java.awt.Color(0, 0, 0));
+        buthoadon.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        buthoadon.setForeground(new java.awt.Color(204, 255, 255));
+        buthoadon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/netsys/icon_app/Price list.png"))); // NOI18N
+        buthoadon.setText("Hóa Đơn");
+        buthoadon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buthoadonActionPerformed(evt);
+            }
+        });
+        jPanel2.add(buthoadon);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -222,51 +237,81 @@ public class NetSySJframe extends javax.swing.JFrame {
         jMenuItem3.setText("Đăng Xuất");
         jMenu5.add(jMenuItem3);
 
-        jMenuItem2.setText("Đổi Mật Khẩu");
-        jMenu5.add(jMenuItem2);
-
-        jMenuItem4.setText("Thoát");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+        menudmk.setText("Đổi Mật Khẩu");
+        menudmk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
+                menudmkActionPerformed(evt);
             }
         });
-        jMenu5.add(jMenuItem4);
+        jMenu5.add(menudmk);
+
+        menuthoat.setText("Thoát");
+        menuthoat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuthoatActionPerformed(evt);
+            }
+        });
+        jMenu5.add(menuthoat);
 
         jMenuBar2.add(jMenu5);
 
         jMenu6.setText("Quản Lý");
 
-        jMenuItem5.setText("Nhân Viên");
-        jMenu6.add(jMenuItem5);
+        menunv.setText("Nhân Viên");
+        menunv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menunvActionPerformed(evt);
+            }
+        });
+        jMenu6.add(menunv);
 
-        jMenuItem6.setText("Thức Ăn");
-        jMenu6.add(jMenuItem6);
+        menuta.setText("Thức Ăn");
+        menuta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menutaActionPerformed(evt);
+            }
+        });
+        jMenu6.add(menuta);
 
-        jMenuItem7.setText("Máy Tính");
-        jMenu6.add(jMenuItem7);
+        menumt.setText("Máy Tính");
+        menumt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menumtActionPerformed(evt);
+            }
+        });
+        jMenu6.add(menumt);
 
         jMenuBar2.add(jMenu6);
 
         jMenu7.setText("Thống Kê");
 
-        jMenuItem8.setText("Doanh Thu");
-        jMenu7.add(jMenuItem8);
+        menuDT.setText("Doanh Thu");
+        menuDT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuDTActionPerformed(evt);
+            }
+        });
+        jMenu7.add(menuDT);
 
-        jMenuItem9.setText("Giờ Sử Dụng");
-        jMenu7.add(jMenuItem9);
+        menuGSD.setText("Giờ Sử Dụng");
+        menuGSD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuGSDActionPerformed(evt);
+            }
+        });
+        jMenu7.add(menuGSD);
 
         jMenuBar2.add(jMenu7);
 
         jMenu8.setText("Trợ Giúp");
 
-        jMenuItem10.setText("Giới Thiệu");
-        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+        menugt.setText("Giới Thiệu");
+        menugt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem10ActionPerformed(evt);
+                menugtActionPerformed(evt);
             }
         });
-        jMenu8.add(jMenuItem10);
+        jMenu8.add(menugt);
 
         jMenuItem11.setText("Hướng Dẫn Sử Dụng");
         jMenu8.add(jMenuItem11);
@@ -303,25 +348,59 @@ public class NetSySJframe extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
+    private void buthoadonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buthoadonActionPerformed
+        this.openHOADON();
+    }//GEN-LAST:event_buthoadonActionPerformed
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
+    private void menuthoatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuthoatActionPerformed
+        if(TBBOX.confirm(this,"BẠN CHẮC CHẮN MUỐN THOÁT")){
+            System.exit(0);
+        }
+    }//GEN-LAST:event_menuthoatActionPerformed
 
-    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem10ActionPerformed
+    private void menugtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menugtActionPerformed
+      this.openGT();
+    }//GEN-LAST:event_menugtActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
+    private void butkhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butkhActionPerformed
+       this.openQLKH();
+    }//GEN-LAST:event_butkhActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void butmtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butmtActionPerformed
+      this.openMT();
+    }//GEN-LAST:event_butmtActionPerformed
+
+    private void menudmkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menudmkActionPerformed
+      this.openDMK();
+    }//GEN-LAST:event_menudmkActionPerformed
+
+    private void menunvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menunvActionPerformed
+       this.ôpenNhanVien();
+    }//GEN-LAST:event_menunvActionPerformed
+
+    private void menutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menutaActionPerformed
+       this.openTHUCAN();
+    }//GEN-LAST:event_menutaActionPerformed
+
+    private void menumtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menumtActionPerformed
+     this.openMT();
+    }//GEN-LAST:event_menumtActionPerformed
+
+    private void menuDTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuDTActionPerformed
+      this.openThongKe();
+    }//GEN-LAST:event_menuDTActionPerformed
+
+    private void menuGSDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuGSDActionPerformed
+       this.openThongKe();
+    }//GEN-LAST:event_menuGSDActionPerformed
+
+    private void butnhanvienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butnhanvienActionPerformed
+    this.ôpenNhanVien();
+    }//GEN-LAST:event_butnhanvienActionPerformed
+
+    private void buttaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttaActionPerformed
+    this.openTHUCAN();
+    }//GEN-LAST:event_buttaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -360,13 +439,13 @@ public class NetSySJframe extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buthoadon;
+    private javax.swing.JButton butkh;
+    private javax.swing.JButton butmt;
+    private javax.swing.JButton butnhanvien;
+    private javax.swing.JButton butta;
     private javax.swing.Box.Filler filler1;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -384,20 +463,52 @@ public class NetSySJframe extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
+    private javax.swing.JMenuItem menuDT;
+    private javax.swing.JMenuItem menuGSD;
+    private javax.swing.JMenuItem menudmk;
+    private javax.swing.JMenuItem menugt;
+    private javax.swing.JMenuItem menumt;
+    private javax.swing.JMenuItem menunv;
+    private javax.swing.JMenuItem menuta;
+    private javax.swing.JMenuItem menuthoat;
     // End of variables declaration//GEN-END:variables
+    private void openDMK() {
+      new DoimatkhauJDialog(this, true).setVisible(true);
+    }
+
+    private void ôpenNhanVien() {
+       new QuanLyNVJDialog(this,true).setVisible(true);
+    }
+
+    private void openTHUCAN() {
+      new QLThucAnJDialog(this,true).setVisible(true);
+    }
+
+    private void openMT() {
+        new QLMayTinh(this, true).setVisible(true);
+    }
+
+    private void openThongKe() {
+        new ThongKeDiaLog(this, true).setVisible(true);
+    }
+
+    private void openGT() {
+        new GioiThieuJDialog(this, true).setVisible(true);
+    }
+
+    private void openQLKH() {
+        new khachhang(this, true).setVisible(true);
+    }
+
+    private void openHOADON() {
+       new Hoadon(this, true).setVisible(true);
+    }
+    
 }
