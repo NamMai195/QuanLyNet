@@ -4,6 +4,9 @@
  */
 package com.netsys.gd;
 
+import com.netsys.utlis.Auth;
+import com.netsys.utlis.TBBOX;
+
 /**
  *
  * @author Nam
@@ -307,4 +310,12 @@ public class ThongKeDiaLog extends javax.swing.JDialog {
     private javax.swing.JTable tblhvkh;
     private javax.swing.JTable tblnguoihoc;
     // End of variables declaration//GEN-END:variables
+
+    private void loaddatatoDoanhTHu() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void loaddatat0tablehv() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

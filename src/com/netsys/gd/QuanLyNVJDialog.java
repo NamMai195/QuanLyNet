@@ -591,8 +591,6 @@ private List<nhanVien> Listnv=dao.selectAll();
     }
     void display(int i){
         nhanVien nv=Listnv.get(i);
-        txtmanv.setText(nv.getManv());
-        txttennv.setText(nv.getTennv());
         txtmatkhau.setText(nv.getPass());
         txthinh.setText(nv.getHinh());
         txtsdt.setText(nv.getSdt());
