@@ -104,17 +104,17 @@ private List<nhanVien> Listnv=dao.selectAll();
 
         tblnv.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Mã Nhân Viên", "Tên Nhân Viên", "Tên Đăng Nhập", "Mật khẩu", "Vai Trò"
+                "Mã Nhân Viên", "Tên Nhân Viên", "Mật khẩu", "Vai Trò", "Số Điện Thoại", "Hình"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, true, false, false
+                false, false, false, false, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -132,7 +132,6 @@ private List<nhanVien> Listnv=dao.selectAll();
             tblnv.getColumnModel().getColumn(1).setResizable(false);
             tblnv.getColumnModel().getColumn(2).setResizable(false);
             tblnv.getColumnModel().getColumn(3).setResizable(false);
-            tblnv.getColumnModel().getColumn(4).setResizable(false);
         }
 
         jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 870, -1));
@@ -329,7 +328,6 @@ private List<nhanVien> Listnv=dao.selectAll();
                                 .addGap(75, 75, 75)
                                 .addComponent(txttennv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtmatkhau, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4))
