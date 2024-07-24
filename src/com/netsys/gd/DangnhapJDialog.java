@@ -5,6 +5,12 @@
 package com.netsys.gd;
 
 //import com.edusys.dao.NhanVienDAO;
+
+import com.netsys.dao.NhanVienDAO;
+import com.netsys.entity.nhanVien;
+import com.netsys.utlis.Auth;
+import com.netsys.utlis.TBBOX;
+
 //import com.edusys.entity.NhanVien;
 //import com.edusys.utlis.Auth;
 //import com.edusys.utlis.TBBOX;
@@ -116,32 +122,32 @@ public class DangnhapJDialog extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-//void ketThuc(){
-//    if(TBBOX.confirm(this, "Bạn muốn thoát chứ")){
-//        System.exit(0);
-//    }
-//}
+void ketThuc(){
+    if(TBBOX.confirm(this, "Bạn muốn thoát chứ")){
+        System.exit(0);
+    }
+}
     private void btnKetThucActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKetThucActionPerformed
-//       ketThuc();
+       ketThuc();
     }//GEN-LAST:event_btnKetThucActionPerformed
-//void DangNhap(){
-//    NhanVienDAO dao=new NhanVienDAO();
-//    NhanVien nv=dao.selectByid(txtuser.getText());
-//    if(nv ==null){
-//        TBBOX.alert(this,"Sai TK hoac mk");
-//    }
-//    else{
-//        if(nv.getMatKhau().equals(txtpassword.getText())){
-//            TBBOX.alert(this,"Đăng Nhập thành công");
-//            TBBOX.alert(this,"Chào mừng "+nv.getHoTen()+" Đã Quay trở lại");
-//            Auth.user=nv;
-//            this.dispose();
-//        }
-//    }
-//    
-//}
+void DangNhap(){
+    NhanVienDAO dao=new NhanVienDAO();
+    nhanVien nv=dao.selectByid(txtuser.getText());
+    if(nv ==null){
+        TBBOX.alert(this,"Sai TK hoac mk");
+    }
+    else{
+        if(nv.getPass().equals(txtpassword.getText())){
+            TBBOX.alert(this,"Đăng Nhập thành công");
+            TBBOX.alert(this,"Chào mừng "+nv.getTennv()+" Đã Quay trở lại");
+            Auth.user=nv;
+            this.dispose();
+        }
+    }
+    
+}
     private void btnDangNhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangNhapActionPerformed
-//       DangNhap();
+       DangNhap();
     }//GEN-LAST:event_btnDangNhapActionPerformed
 
     /**

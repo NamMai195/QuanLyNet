@@ -9,16 +9,16 @@ package com.netsys.entity;
  * @author Nam
  */
 public class khachhang {
-    private int makh;
-    private String tenkh;
-    private String mathekh;
-    private Double tienconlai;
+ private String makh;
+ private String tenkh;
+ private String sdt;
+ private Double tienconlai;
 
-    public int getMakh() {
+    public String getMakh() {
         return makh;
     }
 
-    public void setMakh(int makh) {
+    public void setMakh(String makh) {
         this.makh = makh;
     }
 
@@ -30,12 +30,12 @@ public class khachhang {
         this.tenkh = tenkh;
     }
 
-    public String getMathekh() {
-        return mathekh;
+    public String getSdt() {
+        return sdt;
     }
 
-    public void setMathekh(String mathekh) {
-        this.mathekh = mathekh;
+    public void setSdt(String sdt) {
+        this.sdt = sdt;
     }
 
     public Double getTienconlai() {
@@ -45,5 +45,5 @@ public class khachhang {
     public void setTienconlai(Double tienconlai) {
         this.tienconlai = tienconlai;
     }
-    
+ 
 }

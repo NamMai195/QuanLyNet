@@ -75,7 +75,7 @@ private List<nhanVien> Listnv=dao.selectAll();
         txtsdt = new javax.swing.JTextField();
         txthinh = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtmanv = new javax.swing.JTextField();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -212,6 +212,11 @@ private List<nhanVien> Listnv=dao.selectAll();
 
         butxoa.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         butxoa.setText("Xóa");
+        butxoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butxoaActionPerformed(evt);
+            }
+        });
         jPanel7.add(butxoa);
 
         butlammoi.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -300,7 +305,7 @@ private List<nhanVien> Listnv=dao.selectAll();
                                     .addComponent(txttennv, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtmatkhau, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtsdt, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING))
+                                    .addComponent(txtmanv, javax.swing.GroupLayout.Alignment.LEADING))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -318,7 +323,7 @@ private List<nhanVien> Listnv=dao.selectAll();
                         .addGap(32, 32, 32)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtmanv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
@@ -445,7 +450,13 @@ private List<nhanVien> Listnv=dao.selectAll();
     }//GEN-LAST:event_butthemActionPerformed
 
     private void butsuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butsuaActionPerformed
-        // TODO add your handling code here:
+   if(kttt()){
+       sua();
+       fillTable();
+       clear();
+       Listnv=dao.selectAll();
+   }
+        
     }//GEN-LAST:event_butsuaActionPerformed
 
     private void butlammoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butlammoiActionPerformed
@@ -471,6 +482,13 @@ private List<nhanVien> Listnv=dao.selectAll();
          Listnv=dao.selectAll();
         display(tblnv.getSelectedRow());
     }//GEN-LAST:event_tblnvMouseClicked
+
+    private void butxoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butxoaActionPerformed
+       if(kttt()){
+           xoa();
+           fillTable();
+       }
+    }//GEN-LAST:event_butxoaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -544,11 +562,11 @@ private List<nhanVien> Listnv=dao.selectAll();
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JLabel laberhinh;
     private javax.swing.JTable tblnv;
     private javax.swing.JTextField txthinh;
+    private javax.swing.JTextField txtmanv;
     private javax.swing.JTextField txtmatkhau;
     private javax.swing.JTextField txtsdt;
     private javax.swing.JTextField txttennv;
@@ -564,7 +582,7 @@ private List<nhanVien> Listnv=dao.selectAll();
         try {
             List<nhanVien> list=dao.selectAll();
             for(nhanVien nv:list){
-                Object[] row={nv.getManv(),nv.getTenNV(),nv.getUsername(),nv.getPass(),nv.isRole()?"Trưởng Phòng":"Nhân Viên"};
+                Object[] row={nv.getManv(),nv.getTennv(),nv.getPass(),nv.isRole()?"Trưởng Phòng":"Nhân Viên",nv.getSdt(),nv.getHinh()};
                 model.addRow(row);
             }
         } catch (Exception e) {
@@ -573,10 +591,11 @@ private List<nhanVien> Listnv=dao.selectAll();
     }
     void display(int i){
         nhanVien nv=Listnv.get(i);
-        txttennv.setText(nv.getTenNV());
-        txttendangnhap.setText(nv.getUsername());
+        txtmanv.setText(nv.getManv());
+        txttennv.setText(nv.getTennv());
         txtmatkhau.setText(nv.getPass());
         txthinh.setText(nv.getHinh());
+        txtsdt.setText(nv.getSdt());
         if(nv.isRole()){
             cbbtp.setSelected(true);
         }else{
@@ -605,9 +624,9 @@ private List<nhanVien> Listnv=dao.selectAll();
         txttennv.requestFocus();
         return false;
     }
-    else if(txttendangnhap.getText().equals("") || txttendangnhap.getText()==null){
+    else if(txtmanv.getText().equals("") || txtmanv.getText()==null){
          TBBOX.alert(this,"Thông tin không được để trống");
-         txttendangnhap.requestFocus();
+         txtmanv.requestFocus();
      return false;
     }
     else if(txtmatkhau.getText().equals("") || txtmatkhau.getText()==null){
@@ -626,63 +645,76 @@ private List<nhanVien> Listnv=dao.selectAll();
     }
     private void them(){
         nhanVien nv=new nhanVien();
-        nv.setTenNV(txttennv.getText());
-        nv.setUsername(txttendangnhap.getText());
+        nv.setManv(txtmanv.getText());
+        nv.setTennv(txttennv.getText());
         nv.setPass(txtmatkhau.getText());
         nv.setRole(cbbtp.isSelected());
         nv.setSdt(txtsdt.getText());
         nv.setHinh(txthinh.getText());
         try {
-//            nhanVien a= dao.selectByid(txt.getText());
-//            if(a!=null){
-//                TBBOX.alert(this,"Nhân Viên Đã tồn tại trong hệ thống vui lòng chọn cập nhật hoặc nhập nv khác");
-//            }
-//            else{
+            nhanVien a= dao.selectByid(txtmanv.getText());
+            if(a!=null){
+                TBBOX.alert(this,"Nhân Viên Đã tồn tại trong hệ thống vui lòng chọn cập nhật hoặc nhập nv khác");
+                  clear();
+               fillTable();
+              Listnv=dao.selectAll();
+            }
+            else{
                 dao.insert(nv);
                 TBBOX.alert(this,"Thêm Thành Công");
-//            }
+            }
         } catch (Exception e) {
             TBBOX.alert(this,"ĐÃ Xãy ra lỗi");
+            System.out.println(e);
         }
     }
     private void clear(){
        txttennv.setText("");
-       txttendangnhap.setText("");
+       txtmanv.setText("");
        txtmatkhau.setText("");
        buttonGroup1.clearSelection();
        txtsdt.setText("");
+       txthinh.setText("");
+       laberhinh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rs/anhdaidienmatdinh.jpg")));
+               fillTable();
+              Listnv=dao.selectAll();
     }
     void sua(){
      nhanVien nv=new nhanVien();
-        nv.setTenNV(txttennv.getText());
-        nv.setUsername(txttendangnhap.getText());
+        nv.setTennv(txttennv.getText());
+        nv.setManv(txtmanv.getText());
         nv.setPass(txtmatkhau.getText());
         nv.setRole(cbbtp.isSelected());
         nv.setSdt(txtsdt.getText());
         nv.setHinh(txthinh.getText());
         try {
-            nhanVien a= dao.selectByid(Listnv.get(tblnv.getSelectedRow()).getManv());
+            nhanVien a= dao.selectByid(txtmanv.getText());
             if(a!=null){
                 dao.update(nv);
-                TBBOX.alert(this,"sua Thành Công");
-               
+                TBBOX.alert(this,"Sữa Thành Công");
+               clear();
+               fillTable();
+              Listnv=dao.selectAll();
             }
             else{
                  TBBOX.alert(this,"Nhân Viên Không Tại");
             }
         } catch (Exception e) {
             TBBOX.alert(this,"ĐÃ Xãy ra lỗi");
+            System.out.println(e);
         }
     
 }
      void xoa(){
    
         try {
-            nhanVien a= dao.selectByid(Listnv.get(current).getManv());
+            nhanVien a= dao.selectByid(txtmanv.getText());
             if(a!=null){
                  dao.delete(a.getManv());
                 TBBOX.alert(this,"Xoa Thành Công");
-                
+                  clear();
+               fillTable();
+              Listnv=dao.selectAll();
             }
             else{
                TBBOX.alert(this,"Nhân Viên Không Tồn Tại");

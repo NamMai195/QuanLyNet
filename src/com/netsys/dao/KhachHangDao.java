@@ -14,24 +14,24 @@ import java.util.List;
  *
  * @author Nam
  */
-public class KhachHangDao extends NETSYSDAO<khachhang, Integer>{
-    final  String INSERT_SQL="INSERT INTO khachhang(tenkh,mathekh,tienconlai) VALUES(?,?,?)";
-    final String UPDATE_SQL="UPDATE khachhang SET tenkh=?,mathekh=?,tienconlai=? Where maNH=?";
+public class KhachHangDao extends NETSYSDAO<khachhang, String>{
+    final  String INSERT_SQL="INSERT INTO khachhang(makh,tenkh,sdt,tienconlai) VALUES(?,?,?,?)";
+    final String UPDATE_SQL="UPDATE khachhang SET tenkh=?,sdt=?,tienconlai=? Where makh=?";
     final String DELETE_SQL="DELETE FROM khachhang WHERE makh=?";
     final String SELECT_ALL_SQL="SELECT * FROM khachhang";
     final String SELECT_BY_ID_SQL="SELECT * FROM khachhang WHERE makh=?";
     @Override
     public void insert(khachhang entity) {
-        JdbcHelper.update(INSERT_SQL,entity.getTenkh(),entity.getMathekh(),entity.getTienconlai());
+        JdbcHelper.update(INSERT_SQL,entity.getMakh(),entity.getTenkh(),entity.getSdt(),entity.getTienconlai());
     }
 
     @Override
     public void update(khachhang entity) {
-        JdbcHelper.update(UPDATE_SQL,entity.getTenkh(),entity.getMathekh(),entity.getTienconlai(),entity.getMakh());
+        JdbcHelper.update(UPDATE_SQL,entity.getTenkh(),entity.getSdt(),entity.getTienconlai(),entity.getMakh());
     }
 
     @Override
-    public void delete(Integer id) {
+    public void delete(String id) {
         JdbcHelper.update(DELETE_SQL,id);
     }
 
@@ -41,7 +41,7 @@ public class KhachHangDao extends NETSYSDAO<khachhang, Integer>{
     }
 
     @Override
-    public khachhang selectByid(Integer id) {
+    public khachhang selectByid(String id) {
     List<khachhang> list= selectBySql(SELECT_BY_ID_SQL,id);
         if(list.isEmpty()){
             return null;
@@ -55,9 +55,8 @@ public class KhachHangDao extends NETSYSDAO<khachhang, Integer>{
             ResultSet rs=JdbcHelper.query(sql, args);
             while (rs.next()) {                
                 khachhang entity = new khachhang();
-                entity.setMakh(rs.getInt("makh"));
+                entity.setMakh(rs.getString("makh"));
                 entity.setTenkh(rs.getString("tenkh"));
-                entity.setMathekh(rs.getString("mathekh"));
                 entity.setTienconlai(rs.getDouble("tienconlai"));
                 list.add(entity);
             }

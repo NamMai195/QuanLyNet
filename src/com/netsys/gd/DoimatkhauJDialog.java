@@ -5,6 +5,11 @@
 package com.netsys.gd;
 
 //import com.edusys.dao.NhanVienDAO;
+
+import com.netsys.dao.NhanVienDAO;
+import com.netsys.utlis.Auth;
+import com.netsys.utlis.TBBOX;
+
 //import com.edusys.utlis.Auth;
 //import com.edusys.utlis.TBBOX;
 
@@ -13,7 +18,7 @@ package com.netsys.gd;
  * @author Nam
  */
 public class DoimatkhauJDialog extends javax.swing.JDialog {
-//public NhanVienDAO dao=new NhanVienDAO();
+public NhanVienDAO dao=new NhanVienDAO();
     /**
      * Creates new form DoimatkhauJDialog
      */
@@ -145,38 +150,38 @@ public class DoimatkhauJDialog extends javax.swing.JDialog {
        txtpassnew.setText(null);
        txtcomfinpassnew.setText(null);
     }
-//    private void doiMatKhau(){
-//    if(!txtuser.getText().equalsIgnoreCase(Auth.user.getMaNV())){
-//        TBBOX.alert(this,"Sai TK Hoac MK");
-//    }
-//    else if(!txtpassnow.getText().equals(Auth.user.getMatKhau())){
-//        TBBOX.alert(this,"Sai TK Hoac MK");
-//    }
-//    else if(txtpassnew.getText().equals("")){
-//        TBBOX.alert(this,"Mật khẩu mới là gì");
-//    }
-//    else if(!txtpassnew.getText().equals(txtcomfinpassnew.getText())){
-//        TBBOX.alert(this,"Mat Khẩu Xác Nhận phải giống nhau");
-//    }
-////    điẻm mới 
-//    else if(txtpassnow.getText().equals(txtpassnew.getText())){
-//        TBBOX.alert(this,"Mật khẩu mới không được giống mật khẩu củ");
-//    }
-//    else{
-//        Auth.user.setMatKhau(txtpassnew.getText());
-//        dao.update(Auth.user);
-//        TBBOX.alert(this,"Đổi mật khẩu thành công");
-//        clear();
-//    }
-//}
+    private void doiMatKhau(){
+    if(!txtuser.getText().equalsIgnoreCase(Auth.user.getManv())){
+        TBBOX.alert(this,"Sai TK Hoac MK");
+    }
+    else if(!txtpassnow.getText().equals(Auth.user.getPass())){
+        TBBOX.alert(this,"Sai TK Hoac MK");
+    }
+    else if(txtpassnew.getText().equals("")){
+        TBBOX.alert(this,"Mật khẩu mới là gì");
+    }
+    else if(!txtpassnew.getText().equals(txtcomfinpassnew.getText())){
+        TBBOX.alert(this,"Mat Khẩu Xác Nhận phải giống nhau");
+    }
+//    điẻm mới 
+    else if(txtpassnow.getText().equals(txtpassnew.getText())){
+        TBBOX.alert(this,"Mật khẩu mới không được giống mật khẩu củ");
+    }
+    else{
+        Auth.user.setPass(txtpassnew.getText());
+        dao.update(Auth.user);
+        TBBOX.alert(this,"Đổi mật khẩu thành công");
+        clear();
+    }
+}
     private void btnxacnhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnxacnhanActionPerformed
-//      doiMatKhau();
+      doiMatKhau();
     }//GEN-LAST:event_btnxacnhanActionPerformed
 
     private void btnhuyboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnhuyboActionPerformed
-//       if(TBBOX.confirm(this,"Bạn chắc chắn hủy bỏ")){
-//           this.dispose();
-//       }
+       if(TBBOX.confirm(this,"Bạn chắc chắn hủy bỏ")){
+           this.dispose();
+       }
     }//GEN-LAST:event_btnhuyboActionPerformed
 
     /**

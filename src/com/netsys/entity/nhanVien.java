@@ -9,36 +9,27 @@ package com.netsys.entity;
  * @author Nam
  */
 public class nhanVien {
-    private int manv;
-    private String tenNV;
-    private String username;
-    private String pass;
-    private boolean role;
-    private String sdt;
-    private String hinh;
+  private String manv;
+  private String tennv;
+  private String pass;
+  private String sdt;
+  private String hinh;
+  private boolean role;
 
-    public int getManv() {
+    public String getManv() {
         return manv;
     }
 
-    public void setManv(int manv) {
+    public void setManv(String manv) {
         this.manv = manv;
     }
 
-    public String getTenNV() {
-        return tenNV;
+    public String getTennv() {
+        return tennv;
     }
 
-    public void setTenNV(String tenNV) {
-        this.tenNV = tenNV;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
+    public void setTennv(String tennv) {
+        this.tennv = tennv;
     }
 
     public String getPass() {
@@ -47,14 +38,6 @@ public class nhanVien {
 
     public void setPass(String pass) {
         this.pass = pass;
-    }
-
-    public boolean isRole() {
-        return role;
-    }
-
-    public void setRole(boolean role) {
-        this.role = role;
     }
 
     public String getSdt() {
@@ -72,7 +55,13 @@ public class nhanVien {
     public void setHinh(String hinh) {
         this.hinh = hinh;
     }
-   
+
+    public boolean isRole() {
+        return role;
+    }
+
+    public void setRole(boolean role) {
+        this.role = role;
+    }
   
-    
 }

@@ -14,24 +14,24 @@ import java.sql.ResultSet;
  *
  * @author Nam
  */
-public class NhanVienDAO extends NETSYSDAO<nhanVien, Integer>{
-    final  String INSERT_SQL="INSERT INTO NhanVien(tennv,username,pass,role,sdt,hinh) VALUES(?,?,?,?,?,?)";
-    final String UPDATE_SQL="UPDATE NhanVien SET tennv=?,username=?,pass=?,role=?,sdt=?,hinh=? Where manv=?";
+public class NhanVienDAO extends NETSYSDAO<nhanVien, String>{
+    final  String INSERT_SQL="INSERT INTO NhanVien(manv,tennv,pass,role,sdt,hinh) VALUES(?,?,?,?,?,?)";
+    final String UPDATE_SQL="UPDATE NhanVien SET tennv=?,pass=?,role=?,sdt=?,hinh=? Where manv=?";
     final String DELETE_SQL="DELETE FROM NhanVien WHERE MaNV=?";
     final String SELECT_ALL_SQL="SELECT * FROM NhanVien";
     final String SELECT_BY_ID_SQL="SELECT * FROM NhanVien WHERE MaNV=?";
     @Override
     public void insert(nhanVien entity) {
-        JdbcHelper.update(INSERT_SQL,entity.getTenNV(),entity.getUsername(),entity.getPass(),entity.isRole(),entity.getSdt(),entity.getHinh());
+        JdbcHelper.update(INSERT_SQL,entity.getManv(),entity.getTennv(),entity.getPass(),entity.isRole(),entity.getSdt(),entity.getHinh());
     }
 
     @Override
     public void update(nhanVien entity) {
-        JdbcHelper.update(UPDATE_SQL,entity.getTenNV(),entity.getUsername(),entity.getPass(),entity.isRole(),entity.getSdt(),entity.getHinh(),entity.getManv());
+        JdbcHelper.update(UPDATE_SQL,entity.getTennv(),entity.getPass(),entity.isRole(),entity.getSdt(),entity.getHinh(),entity.getManv());
     }
 
     @Override
-    public void delete(Integer id) {
+    public void delete(String id) {
          JdbcHelper.update(DELETE_SQL,id);
     }
 
@@ -42,7 +42,7 @@ public class NhanVienDAO extends NETSYSDAO<nhanVien, Integer>{
     }
 
     @Override
-    public nhanVien selectByid(Integer id) {
+    public nhanVien selectByid(String id) {
         List<nhanVien> list= selectBySql(SELECT_BY_ID_SQL,id);
         if(list.isEmpty()){
             return null;
@@ -57,10 +57,9 @@ public class NhanVienDAO extends NETSYSDAO<nhanVien, Integer>{
             ResultSet rs=JdbcHelper.query(sql, args);
             while (rs.next()) {                
                 nhanVien entity = new nhanVien();
-                entity.setManv(rs.getInt("MaNV"));
+                entity.setManv(rs.getString("manv"));
                 
-                entity.setTenNV(rs.getString("tennv"));
-                entity.setUsername(rs.getString("username"));
+                entity.setTennv(rs.getString("tennv"));
                 entity.setPass(rs.getString("pass"));
                 entity.setRole(rs.getBoolean("role"));
                 entity.setSdt(rs.getString("sdt"));
