@@ -574,7 +574,7 @@ private List<nhanVien> Listnv=dao.selectAll();
     void display(int i){
         nhanVien nv=Listnv.get(i);
         txttennv.setText(nv.getTenNV());
-        txttendangnhap.setText(nv.getUsername());
+//        txttendangnhap.setText(nv.getUsername());
         txtmatkhau.setText(nv.getPass());
         txthinh.setText(nv.getHinh());
         if(nv.isRole()){

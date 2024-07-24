@@ -4,8 +4,6 @@
  */
 package com.netsys.gd;
 
-import maytinh.*;
-
 /**
  *
  * @author ADMIN
