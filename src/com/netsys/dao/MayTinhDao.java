@@ -4,7 +4,8 @@
  */
 package com.netsys.dao;
 
-import com.netsys.entity.khachhang;
+
+import com.netsys.entity.mayTinh;
 import com.netsys.utlis.JdbcHelper;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -14,20 +15,20 @@ import java.util.List;
  *
  * @author Nam
  */
-public class KhachHangDao extends NETSYSDAO<khachhang, String>{
-    final  String INSERT_SQL="INSERT INTO khachhang(makh,tenkh,sdt,tienconlai) VALUES(?,?,?,?)";
-    final String UPDATE_SQL="UPDATE khachhang SET tenkh=?,sdt=?,tienconlai=? Where makh=?";
-    final String DELETE_SQL="DELETE FROM khachhang WHERE makh=?";
-    final String SELECT_ALL_SQL="SELECT * FROM khachhang";
-    final String SELECT_BY_ID_SQL="SELECT * FROM khachhang WHERE makh=?";
+public class MayTinhDao extends NETSYSDAO<mayTinh, String>{
+    final  String INSERT_SQL="INSERT INTO maytinh(mamt,tenmt,status,tientheogio) VALUES(?,?,?,?)";
+    final String UPDATE_SQL="UPDATE maytinh SET tenmt=?,status=?,tientheogio=? Where mamt=?";
+    final String DELETE_SQL="DELETE FROM maytinh WHERE makh=?";
+    final String SELECT_ALL_SQL="SELECT * FROM maytinh";
+    final String SELECT_BY_ID_SQL="SELECT * FROM maytinh WHERE mamt=?";
     @Override
-    public void insert(khachhang entity) {
-        JdbcHelper.update(INSERT_SQL,entity.getMakh(),entity.getTenkh(),entity.getSdt(),entity.getTienconlai());
+    public void insert(mayTinh entity) {
+        JdbcHelper.update(INSERT_SQL,entity.getMamt(),entity.getTenmt(),entity.getStatus(),entity.getTientheogio());
     }
 
     @Override
-    public void update(khachhang entity) {
-        JdbcHelper.update(UPDATE_SQL,entity.getTenkh(),entity.getSdt(),entity.getTienconlai(),entity.getMakh());
+    public void update(mayTinh entity) {
+        JdbcHelper.update(UPDATE_SQL,entity.getTenmt(),entity.getStatus(),entity.getTientheogio(),entity.getMamt());
     }
 
     @Override
@@ -36,29 +37,29 @@ public class KhachHangDao extends NETSYSDAO<khachhang, String>{
     }
 
     @Override
-    public List<khachhang> selectAll() {
+    public List<mayTinh> selectAll() {
         return selectBySql(SELECT_ALL_SQL);
     }
 
     @Override
-    public khachhang selectByid(String id) {
-    List<khachhang> list= selectBySql(SELECT_BY_ID_SQL,id);
+    public mayTinh selectByid(String id) {
+    List<mayTinh> list= selectBySql(SELECT_BY_ID_SQL,id);
         if(list.isEmpty()){
             return null;
         }
         return list.get(0);    }
 
     @Override
-    public List<khachhang> selectBySql(String sql, Object... args) {
-       List<khachhang> list= new ArrayList<>();
+    public List<mayTinh> selectBySql(String sql, Object... args) {
+       List<mayTinh> list= new ArrayList<>();
         try {
             ResultSet rs=JdbcHelper.query(sql, args);
             while (rs.next()) {                
-                khachhang entity = new khachhang();
-                entity.setMakh(rs.getString("makh"));
-                entity.setTenkh(rs.getString("tenkh"));
-                entity.setTienconlai(rs.getDouble("tienconlai"));
-                entity.setSdt(rs.getString("sdt"));
+                mayTinh entity = new mayTinh();
+                entity.setMamt(rs.getString("mamt"));
+                entity.setTenmt(rs.getString("tenmt"));
+                entity.setStatus(rs.getString("status"));
+                entity.setTientheogio(rs.getFloat("tientheogio"));
                 list.add(entity);
             }
              rs.getStatement().getConnection().close();

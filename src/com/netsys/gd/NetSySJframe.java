@@ -504,7 +504,7 @@ public class NetSySJframe extends javax.swing.JFrame {
     }
 
     private void openQLKH() {
-        new khachhang(this, true).setVisible(true);
+        new QLKH(this, true).setVisible(true);
     }
 
     private void openHOADON() {

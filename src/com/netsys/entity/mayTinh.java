@@ -9,16 +9,16 @@ package com.netsys.entity;
  * @author Nam
  */
 public class mayTinh {
-    private int mamt;
+    private String mamt;
     private String tenmt;
     private String status;
     private float tientheogio;
 
-    public int getMamt() {
+    public String getMamt() {
         return mamt;
     }
 
-    public void setMamt(int mamt) {
+    public void setMamt(String mamt) {
         this.mamt = mamt;
     }
 
