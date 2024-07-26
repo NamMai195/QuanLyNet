@@ -54,7 +54,7 @@ private List<thuan> listta=dao.selectAll();
         soluong = new javax.swing.JSpinner();
         butcapnhat = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        cbbloai = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -176,7 +176,12 @@ private List<thuan> listta=dao.selectAll();
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel10.setText("Loại:");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbbloai.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tất Cả", "Nước Uống", "Thức Ăn", " " }));
+        cbbloai.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbbloaiActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -188,7 +193,7 @@ private List<thuan> listta=dao.selectAll();
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel10)
                         .addGap(18, 18, 18)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cbbloai, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 509, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -204,7 +209,7 @@ private List<thuan> listta=dao.selectAll();
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbbloai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -564,7 +569,8 @@ private List<thuan> listta=dao.selectAll();
     }//GEN-LAST:event_tbltaMouseClicked
 
     private void butcapnhatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butcapnhatActionPerformed
-       thuan ta=new thuan();
+     if(TBBOX.confirm(this,"Chắn Chắn Cập Nhật")){
+           thuan ta=new thuan();
         
         try {
             thuan a=dao.selectByid(txtmata.getText());
@@ -573,6 +579,7 @@ private List<thuan> listta=dao.selectAll();
         ta.setTenta(txttenta.getText());
         ta.setGia(Double.parseDouble(txtgia.getText()));
          ta.setHinh(txthinh.getText());
+         ta.setLoai(rdbda.isSelected());
          int soluong=(int) this.soluong.getValue();
          int soluongcu=a.getSoLuong();
                 ta.setSoLuong(soluongcu+soluong);
@@ -590,7 +597,12 @@ private List<thuan> listta=dao.selectAll();
             TBBOX.alert(this,"Đã Xảy Ra Lỗi");
             System.out.println(e);
         }
+     }
     }//GEN-LAST:event_butcapnhatActionPerformed
+
+    private void cbbloaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbloaiActionPerformed
+       fillTable();
+    }//GEN-LAST:event_cbbloaiActionPerformed
 
     /**
      * @param args the command line arguments
@@ -642,9 +654,9 @@ private List<thuan> listta=dao.selectAll();
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton buttthem;
     private javax.swing.JButton butxoa;
+    private javax.swing.JComboBox<String> cbbloai;
     private javax.swing.JButton f;
     private javax.swing.JButton ff;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -686,8 +698,24 @@ private List<thuan> listta=dao.selectAll();
         try {
             List<thuan> list=dao.selectAll();
             for(thuan ta:list){
-                Object[] row={ta.getMata(),ta.getTenta(),ta.isLoai()?"Đồ Ăn":"Nước Uống",ta.getGia(),ta.getSoLuong()};
+                if(cbbloai.getSelectedIndex()==0){
+                     Object[] row={ta.getMata(),ta.getTenta(),ta.isLoai()?"Đồ Ăn":"Nước Uống",ta.getGia(),ta.getSoLuong()};
                 model.addRow(row);
+                }
+               if(cbbloai.getSelectedIndex()==1){
+                   if(ta.isLoai()==false){
+                      Object[] row={ta.getMata(),ta.getTenta(),ta.isLoai()?"Đồ Ăn":"Nước Uống",ta.getGia(),ta.getSoLuong()};
+                model.addRow(row);
+                   }
+                   
+               }
+               else if(cbbloai.getSelectedIndex()==2){
+                   if(ta.isLoai()==true){
+                      Object[] row={ta.getMata(),ta.getTenta(),ta.isLoai()?"Đồ Ăn":"Nước Uống",ta.getGia(),ta.getSoLuong()};
+                model.addRow(row);
+                   }
+                   
+               }
             }
         } catch (Exception e) {
             TBBOX.alert(this,"Lỗi Truy Vấn DỮ Liệu");
@@ -756,6 +784,7 @@ private List<thuan> listta=dao.selectAll();
         ta.setGia(Double.parseDouble(txtgia.getText()));
         ta.setSoLuong(Integer.parseInt(txtsoluong.getText()));
         ta.setHinh(txthinh.getText());
+        ta.setLoai(rdbda.isSelected());
         try {
             thuan a=dao.selectByid(txtmata.getText());
             if(a!=null){
@@ -794,6 +823,7 @@ private List<thuan> listta=dao.selectAll();
         ta.setGia(Double.parseDouble(txtgia.getText()));
          ta.setSoLuong(Integer.parseInt(txtsoluong.getText()));
          ta.setHinh(txthinh.getText());
+         ta.setLoai(rdbda.isSelected());
         try {
             thuan a=dao.selectByid(txtmata.getText());
             if(a!=null){
