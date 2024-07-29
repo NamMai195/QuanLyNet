@@ -78,6 +78,8 @@ public class Bill {
     public void setTrangthai(boolean trangthai) {
         this.trangthai = trangthai;
     }
+
+    
     
 
 }

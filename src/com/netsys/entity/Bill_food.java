@@ -10,9 +10,10 @@ package com.netsys.entity;
  */
 public class Bill_food {
     private int mabill;
-    private int mata;
+    private String mata;
     private int soluong;
     private int price;
+    private boolean loai;
 
     public int getMabill() {
         return mabill;
@@ -22,11 +23,11 @@ public class Bill_food {
         this.mabill = mabill;
     }
 
-    public int getMata() {
+    public String getMata() {
         return mata;
     }
 
-    public void setMata(int mata) {
+    public void setMata(String mata) {
         this.mata = mata;
     }
 
@@ -45,5 +46,15 @@ public class Bill_food {
     public void setPrice(int price) {
         this.price = price;
     }
+
+    public boolean isLoai() {
+        return loai;
+    }
+
+    public void setLoai(boolean loai) {
+        this.loai = loai;
+    }
     
+
+ 
 }

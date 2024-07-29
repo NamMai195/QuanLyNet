@@ -4,12 +4,74 @@
  */
 package com.netsys.gd;
 
+import com.netsys.dao.ThucAnDao;
+import com.netsys.entity.Bill_food;
+import com.netsys.entity.thuan;
+import com.netsys.utlis.LuuBill;
+import com.netsys.utlis.TBBOX;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Nam
  */
 public class BooKFoodJDialog extends javax.swing.JDialog {
-
+private thuan ta=new thuan();
+private ThucAnDao dao=new ThucAnDao();
+private List<thuan> list=dao.selectAll();
+private Bill_food bill=new Bill_food();
+private void fillTable() {
+        DefaultTableModel model=(DefaultTableModel) tblthucan.getModel();
+        model.setRowCount(0);
+        try {
+            List<thuan> list=dao.selectAll();
+            for(thuan ta:list){
+                if(cbbloai.getSelectedIndex()==0){
+                     Object[] row={ta.getMata(),ta.getTenta(),ta.isLoai()?"Đồ Ăn":"Nước Uống",ta.getGia(),ta.getSoLuong()};
+                model.addRow(row);
+                }
+               if(cbbloai.getSelectedIndex()==1){
+                   if(ta.isLoai()==false){
+                      Object[] row={ta.getMata(),ta.getTenta(),ta.isLoai()?"Đồ Ăn":"Nước Uống",ta.getGia(),ta.getSoLuong()};
+                model.addRow(row);
+                   }
+                   
+               }
+               else if(cbbloai.getSelectedIndex()==2){
+                   if(ta.isLoai()==true){
+                      Object[] row={ta.getMata(),ta.getTenta(),ta.isLoai()?"Đồ Ăn":"Nước Uống",ta.getGia(),ta.getSoLuong()};
+                model.addRow(row);
+                   }
+                   
+               }
+            }
+        } catch (Exception e) {
+            TBBOX.alert(this,"Lỗi Truy Vấn DỮ Liệu");
+        }
+}
+void display(int i){
+        thuan ta=list.get(i);
+        txttenta.setText(ta.getTenta());
+        txtgiata.setText(ta.getGia().toString());
+        int soluong=(int) txtsoluong.getValue();
+        float tong=soluong*Float.parseFloat(txtgiata.getText());
+        txtthanhtien.setText(""+tong);
+        txthinh.setText(ta.getHinh());
+        if(txthinh.getText().equals("") || txthinh.getText()==null){
+           txthinh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rs/anhdaidienmatdinh.jpg")));
+           
+        }
+        else{
+          txthinh.setIcon(new javax.swing.ImageIcon(txthinh.getText()));   
+         
+        }
+    }
+void soluong(){
+    int soluong=(int) txtsoluong.getValue();
+        float tong=soluong*Float.parseFloat(txtgiata.getText());
+        txtthanhtien.setText(""+tong);
+}
     /**
      * Creates new form BooKFoodJDialog
      */
@@ -17,6 +79,8 @@ public class BooKFoodJDialog extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
+        fillTable();
+//        txtmabill.setText(""+LuuBill.bill.getMabill());
     }
 
     /**
@@ -31,22 +95,22 @@ public class BooKFoodJDialog extends javax.swing.JDialog {
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblthucan = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cbbloai = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        txtmabill = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
+        txthinh = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jSpinner1 = new javax.swing.JSpinner();
-        jTextField3 = new javax.swing.JTextField();
+        txttenta = new javax.swing.JTextField();
+        txtgiata = new javax.swing.JTextField();
+        txtsoluong = new javax.swing.JSpinner();
+        txtthanhtien = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
 
@@ -57,7 +121,7 @@ public class BooKFoodJDialog extends javax.swing.JDialog {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("Mua Thức Ăn");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblthucan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -68,21 +132,31 @@ public class BooKFoodJDialog extends javax.swing.JDialog {
                 "Tên Thức Ăn", "Giá ", "Số Lượng Còn lại"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        tblthucan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblthucanMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tblthucan);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("Loại Thức Ăn:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbbloai.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "tất cả", "nước uống", "đồ ăn" }));
+        cbbloai.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbbloaiActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setText("Mã Bill:");
 
-        jLabel4.setText("......................");
+        txtmabill.setText("......................");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Hình Ảnh Minh Họa", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/netsys/rs/anhdaidienmatdinh.jpg"))); // NOI18N
+        txthinh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/netsys/rs/anhdaidienmatdinh.jpg"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -90,14 +164,14 @@ public class BooKFoodJDialog extends javax.swing.JDialog {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(jLabel5)
+                .addComponent(txthinh)
                 .addContainerGap(30, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(jLabel5)
+                .addComponent(txthinh)
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
@@ -111,9 +185,46 @@ public class BooKFoodJDialog extends javax.swing.JDialog {
 
         jLabel9.setText("Thành Tiền:");
 
+        txtsoluong.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                txtsoluongAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        txtsoluong.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                txtsoluongStateChanged(evt);
+            }
+        });
+        txtsoluong.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtsoluongMouseClicked(evt);
+            }
+        });
+        txtsoluong.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                txtsoluongInputMethodTextChanged(evt);
+            }
+        });
+
         jButton2.setText("Xác Nhận");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Hủy Bỏ");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -125,7 +236,7 @@ public class BooKFoodJDialog extends javax.swing.JDialog {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txttenta, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel7)
@@ -133,11 +244,11 @@ public class BooKFoodJDialog extends javax.swing.JDialog {
                             .addComponent(jLabel9))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField2)
+                            .addComponent(txtgiata)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtsoluong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtthanhtien, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap(54, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
@@ -153,18 +264,18 @@ public class BooKFoodJDialog extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txttenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtgiata, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtsoluong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtthanhtien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -191,11 +302,11 @@ public class BooKFoodJDialog extends javax.swing.JDialog {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(18, 18, 18)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cbbloai, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(78, 78, 78)
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel4))))
+                                .addComponent(txtmabill))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(276, 276, 276)
                         .addComponent(jLabel1)))
@@ -209,9 +320,9 @@ public class BooKFoodJDialog extends javax.swing.JDialog {
                 .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbbloai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
-                    .addComponent(jLabel4))
+                    .addComponent(txtmabill))
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -224,6 +335,40 @@ public class BooKFoodJDialog extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void cbbloaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbloaiActionPerformed
+       fillTable();
+    }//GEN-LAST:event_cbbloaiActionPerformed
+
+    private void txtsoluongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtsoluongMouseClicked
+        soluong();
+    }//GEN-LAST:event_txtsoluongMouseClicked
+
+    private void tblthucanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblthucanMouseClicked
+        display(tblthucan.getSelectedRow());
+    }//GEN-LAST:event_tblthucanMouseClicked
+
+    private void txtsoluongAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_txtsoluongAncestorAdded
+   
+    }//GEN-LAST:event_txtsoluongAncestorAdded
+
+    private void txtsoluongInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_txtsoluongInputMethodTextChanged
+      soluong();
+    }//GEN-LAST:event_txtsoluongInputMethodTextChanged
+
+    private void txtsoluongStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_txtsoluongStateChanged
+        soluong();
+    }//GEN-LAST:event_txtsoluongStateChanged
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       if(TBBOX.confirm(this, "Chắc Chắn Đặt Hàng")){
+           if(soluon)
+       }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -268,15 +413,13 @@ public class BooKFoodJDialog extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cbbloai;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -284,10 +427,12 @@ public class BooKFoodJDialog extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTable tblthucan;
+    private javax.swing.JTextField txtgiata;
+    private javax.swing.JLabel txthinh;
+    private javax.swing.JLabel txtmabill;
+    private javax.swing.JSpinner txtsoluong;
+    private javax.swing.JTextField txttenta;
+    private javax.swing.JTextField txtthanhtien;
     // End of variables declaration//GEN-END:variables
 }

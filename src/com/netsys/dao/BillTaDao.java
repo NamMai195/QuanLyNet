@@ -5,6 +5,7 @@
 package com.netsys.dao;
 
 
+import com.netsys.entity.Bill_food;
 import com.netsys.entity.mayTinh;
 import com.netsys.utlis.JdbcHelper;
 import java.sql.ResultSet;
@@ -15,19 +16,19 @@ import java.util.List;
  *
  * @author Nam
  */
-public class MayTinhDao extends NETSYSDAO<mayTinh, String>{
+public class BillTaDao extends NETSYSDAO<Bill_food, String>{
     final  String INSERT_SQL="INSERT INTO maytinh(mamt,tenmt,status,tientheogio) VALUES(?,?,?,?)";
     final String UPDATE_SQL="UPDATE maytinh SET tenmt=?,status=?,tientheogio=? Where mamt=?";
     final String DELETE_SQL="DELETE FROM maytinh WHERE mamt=?";
     final String SELECT_ALL_SQL="SELECT * FROM maytinh";
     final String SELECT_BY_ID_SQL="SELECT * FROM maytinh WHERE mamt=?";
     @Override
-    public void insert(mayTinh entity) {
+    public void insert(Bill_food entity) {
         JdbcHelper.update(INSERT_SQL,entity.getMamt(),entity.getTenmt(),entity.getStatus(),entity.getTientheogio());
     }
 
     @Override
-    public void update(mayTinh entity) {
+    public void update(Bill_food entity) {
         JdbcHelper.update(UPDATE_SQL,entity.getTenmt(),entity.getStatus(),entity.getTientheogio(),entity.getMamt());
     }
 
@@ -37,29 +38,30 @@ public class MayTinhDao extends NETSYSDAO<mayTinh, String>{
     }
 
     @Override
-    public List<mayTinh> selectAll() {
+    public List<Bill_food> selectAll() {
         return selectBySql(SELECT_ALL_SQL);
     }
 
     @Override
-    public mayTinh selectByid(String id) {
-    List<mayTinh> list= selectBySql(SELECT_BY_ID_SQL,id);
+    public Bill_food selectByid(String id) {
+    List<Bill_food> list= selectBySql(SELECT_BY_ID_SQL,id);
         if(list.isEmpty()){
             return null;
         }
         return list.get(0);    }
 
     @Override
-    public List<mayTinh> selectBySql(String sql, Object... args) {
-       List<mayTinh> list= new ArrayList<>();
+    public List<Bill_food> selectBySql(String sql, Object... args) {
+       List<Bill_food> list= new ArrayList<>();
         try {
             ResultSet rs=JdbcHelper.query(sql, args);
             while (rs.next()) {                
-                mayTinh entity = new mayTinh();
-                entity.setMamt(rs.getString("mamt"));
-                entity.setTenmt(rs.getString("tenmt"));
-                entity.setStatus(rs.getString("status"));
-                entity.setTientheogio(rs.getFloat("tientheogio"));
+                Bill_food entity = new Bill_food();
+                entity.setMabill(rs.getInt("mabill"));
+                entity.setMata(rs.getString("mata"));
+                entity.setSoluong(rs.getInt("soluong"));
+                entity.setPrice(rs.getInt("price"));
+                entity.setLoai(rs.getBoolean("loai"));
                 list.add(entity);
             }
              rs.getStatement().getConnection().close();

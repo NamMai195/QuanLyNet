@@ -4,17 +4,27 @@
  */
 package com.netsys.entity;
 import java.time.LocalDateTime;
+import java.util.Date;
 /**
  *
  * @author Nam
  */
 public class bill_pc {
     private int mabill;
-    private int mamt;
-    private LocalDateTime start;
-    private LocalDateTime end;
+    private String mamt;
+    private Date start;
+    private Date end;
     private Double price;
+    private boolean loai;
 
+    public boolean isLoai() {
+        return loai;
+    }
+
+    public void setLoai(boolean loai) {
+        this.loai = loai;
+    }
+    
     public int getMabill() {
         return mabill;
     }
@@ -23,27 +33,27 @@ public class bill_pc {
         this.mabill = mabill;
     }
 
-    public int getMamt() {
+    public String getMamt() {
         return mamt;
     }
 
-    public void setMamt(int mamt) {
+    public void setMamt(String mamt) {
         this.mamt = mamt;
     }
 
-    public LocalDateTime getStart() {
+    public Date getStart() {
         return start;
     }
 
-    public void setStart(LocalDateTime start) {
+    public void setStart(Date start) {
         this.start = start;
     }
 
-    public LocalDateTime getEnd() {
+    public Date getEnd() {
         return end;
     }
 
-    public void setEnd(LocalDateTime end) {
+    public void setEnd(Date end) {
         this.end = end;
     }
 

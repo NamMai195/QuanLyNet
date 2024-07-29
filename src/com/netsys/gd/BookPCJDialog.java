@@ -4,11 +4,26 @@
  */
 package com.netsys.gd;
 
+import com.netsys.dao.BillMayTinhDao;
+import com.netsys.dao.MayTinhDao;
+import com.netsys.entity.bill_pc;
+import com.netsys.entity.mayTinh;
+import com.netsys.utlis.LUUMT;
+import com.netsys.utlis.LuuBill;
+import com.netsys.utlis.TBBOX;
+import com.netsys.utlis.XDate;
+
 /**
  *
  * @author Nam
  */
 public class BookPCJDialog extends javax.swing.JDialog {
+private void loadtt(){
+    txtmamt.setText(LUUMT.user.getMamt());
+    txttenmt.setText(LUUMT.user.getTenmt());
+    txttrangthai.setText(LUUMT.user.getStatus());
+    txtgiomo.setText(String.valueOf(LUUMT.user.getTientheogio()));
+}
 
     /**
      * Creates new form BookPCJDialog
@@ -17,6 +32,7 @@ public class BookPCJDialog extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
+        loadtt();
     }
 
     /**
@@ -32,13 +48,13 @@ public class BookPCJDialog extends javax.swing.JDialog {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        txtmamt = new javax.swing.JLabel();
+        txttenmt = new javax.swing.JLabel();
+        txttrangthai = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
+        txtgiomo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -54,24 +70,34 @@ public class BookPCJDialog extends javax.swing.JDialog {
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setText("Trạng Thái:");
 
-        jLabel5.setText("............................");
+        txtmamt.setText("............................");
 
-        jLabel6.setText("............................");
+        txttenmt.setText("............................");
 
-        jLabel7.setText("............................");
+        txttrangthai.setText("............................");
 
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/netsys/icon_app/Accept.png"))); // NOI18N
         jButton1.setText("Xác Nhận Mở Máy");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/netsys/icon_app/Delete.png"))); // NOI18N
         jButton2.setText("Hủy Bỏ");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel8.setText("Giờ Mở:");
 
-        jLabel10.setText("............................");
+        txtgiomo.setText("............................");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -94,19 +120,19 @@ public class BookPCJDialog extends javax.swing.JDialog {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel3)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel6))
+                                        .addComponent(txttenmt))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addComponent(jLabel2)
                                         .addGap(38, 38, 38)
-                                        .addComponent(jLabel5))
+                                        .addComponent(txtmamt))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(jLabel8)
                                             .addComponent(jLabel4))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING))))
+                                            .addComponent(txttrangthai, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(txtgiomo, javax.swing.GroupLayout.Alignment.TRAILING))))
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addGap(49, 49, 49))
         );
@@ -120,17 +146,17 @@ public class BookPCJDialog extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(jLabel5))
+                            .addComponent(txtmamt))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(jLabel6))
+                            .addComponent(txttenmt))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(jLabel7))
+                            .addComponent(txttrangthai))
                         .addGap(33, 33, 33)
-                        .addComponent(jLabel10))
+                        .addComponent(txtgiomo))
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -141,6 +167,31 @@ public class BookPCJDialog extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+private bill_pc bill=new bill_pc();
+private BillMayTinhDao dao=new BillMayTinhDao();
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    if(TBBOX.confirm(this, "Chắn Chắn Mở Máy")){
+        try {
+             bill.setMamt(txtmamt.getText());
+        bill.setMabill(LuuBill.bill.getMabill());
+        bill.setStart(XDate.now());
+        bill.setPrice(0.0);
+        bill.setLoai(false);
+        dao.insert(bill);
+        TBBOX.alert(this, "Nhập Thành Công");
+        this.dispose();
+        } catch (Exception e) {
+            TBBOX.alert(this, "Đã Xãy Ra Lỗi");
+            System.out.println(e);
+        }
+    }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        if(TBBOX.confirm(this, "Bạn Chắn Chắn Hủy Bỏ")){
+            this.dispose();
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -188,13 +239,13 @@ public class BookPCJDialog extends javax.swing.JDialog {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel txtgiomo;
+    private javax.swing.JLabel txtmamt;
+    private javax.swing.JLabel txttenmt;
+    private javax.swing.JLabel txttrangthai;
     // End of variables declaration//GEN-END:variables
 }

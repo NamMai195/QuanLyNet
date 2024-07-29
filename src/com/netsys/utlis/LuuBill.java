@@ -4,24 +4,25 @@
  */
 package com.netsys.utlis;
 
+import com.netsys.entity.Bill;
 import com.netsys.entity.nhanVien;
 
 /**
  *
  * @author Nam
  */
-public class Auth {
-//   doi tuong chua thong tin khi nguoi dung dang nhap
-    public static nhanVien user=null;
+public class LuuBill {
+//   doi tuong chua bill khi nguoi dung 
+    public static Bill bill=null;
 //    clear thong tin khi dang xuat
     public static void clear(){
-        Auth.user=null;
+        LuuBill.bill=null;
     }
 //    KT dang nhap hay chua
-   public static boolean isLogin(){
-       return Auth.user !=null;
+   public static boolean KTBILL(){
+       return LuuBill.bill !=null;
    }
-   public static boolean isManager(){
-       return Auth.isLogin()&& user.isRole();
-   }
+//   public static boolean isManager(){
+//       return LuuBill.KTBILL()&& LuuBill.();
+//   }
 }

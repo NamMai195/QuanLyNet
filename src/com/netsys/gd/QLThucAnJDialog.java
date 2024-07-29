@@ -581,6 +581,7 @@ private List<thuan> listta=dao.selectAll();
          ta.setHinh(txthinh.getText());
          ta.setLoai(rdbda.isSelected());
          int soluong=(int) this.soluong.getValue();
+  
          int soluongcu=a.getSoLuong();
                 ta.setSoLuong(soluongcu+soluong);
                  dao.update(ta);
