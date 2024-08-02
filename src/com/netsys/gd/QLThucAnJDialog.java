@@ -270,6 +270,7 @@ private List<thuan> listta=dao.selectAll();
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
+        buthinh.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         buthinh.setText("Úp Hình");
         buthinh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -309,7 +310,7 @@ private List<thuan> listta=dao.selectAll();
             }
         });
 
-        f.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        f.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         f.setText("<");
         f.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -317,7 +318,7 @@ private List<thuan> listta=dao.selectAll();
             }
         });
 
-        ff.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        ff.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         ff.setText("<<");
         ff.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -325,7 +326,7 @@ private List<thuan> listta=dao.selectAll();
             }
         });
 
-        nn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        nn.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         nn.setText(">>");
         nn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -333,7 +334,7 @@ private List<thuan> listta=dao.selectAll();
             }
         });
 
-        n.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        n.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         n.setText(">");
         n.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -342,9 +343,11 @@ private List<thuan> listta=dao.selectAll();
         });
 
         buttonGroup1.add(rdbda);
+        rdbda.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         rdbda.setText(" Đồ Ăn");
 
         buttonGroup1.add(rdbnu);
+        rdbnu.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         rdbnu.setText("Nước Uống");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -402,7 +405,7 @@ private List<thuan> listta=dao.selectAll();
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(buthinh)
-                .addGap(127, 127, 127))
+                .addGap(117, 117, 117))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -429,13 +432,13 @@ private List<thuan> listta=dao.selectAll();
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buthinh)
-                .addGap(16, 16, 16)
+                .addGap(22, 22, 22)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(txtsoluong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttthem)
                     .addComponent(butxoa)

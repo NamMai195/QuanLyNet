@@ -17,7 +17,7 @@ import java.util.List;
  */
 public class BillMayTinhDao extends NETSYSDAO<bill_pc, Integer>{
     final  String INSERT_SQL="INSERT INTO bill_pc(mabill,mamt,start_time,price,loat) VALUES(?,?,?,?,?)";
-    final String UPDATE_SQL="UPDATE bill_pc SET start_time=?,end_time=?,price=?,loat Where mabill=? and mamt=?";
+    final String UPDATE_SQL="UPDATE bill_pc SET start_time=?,end_time=?,price=?,loat=? Where mabill=? and mamt=?";
     final String DELETE_SQL="DELETE FROM bill_pc WHERE mabill=? and mamt=?";
     final String SELECT_ALL_SQL="SELECT * FROM bill_pc";
     final String SELECT_BY_ID_SQL="SELECT * FROM bill_pc WHERE mabill=? and mamt=?";
@@ -31,7 +31,7 @@ public class BillMayTinhDao extends NETSYSDAO<bill_pc, Integer>{
         JdbcHelper.update(UPDATE_SQL,entity.getStart(),entity.getEnd(),entity.getPrice(),entity.isLoai(),entity.getMabill(),entity.getMamt());
     }
 
-    public void delete(Integer id,Integer id2) {
+    public void delete(Integer id,String id2) {
         JdbcHelper.update(DELETE_SQL,id,id2);
     }
 
@@ -40,9 +40,8 @@ public class BillMayTinhDao extends NETSYSDAO<bill_pc, Integer>{
         return selectBySql(SELECT_ALL_SQL);
     }
 
-    @Override
-    public bill_pc selectByid(Integer id) {
-    List<bill_pc> list= selectBySql(SELECT_BY_ID_SQL,id);
+    public bill_pc selectByid(Integer id,String id2) {
+    List<bill_pc> list= selectBySql(SELECT_BY_ID_SQL,id,id2);
         if(list.isEmpty()){
             return null;
         }
@@ -79,6 +78,15 @@ public class BillMayTinhDao extends NETSYSDAO<bill_pc, Integer>{
     @Override
     public void delete(Integer id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public bill_pc selectByid(Integer id) {
+        List<bill_pc> list= selectBySql("SELECT * FROM bill_pc WHERE mabill=?",id);
+        if(list.isEmpty()){
+            return null;
+        }
+        return list.get(0); 
     }
     
 }

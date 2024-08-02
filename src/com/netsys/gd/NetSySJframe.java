@@ -10,7 +10,6 @@ import java.awt.Image;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-
 /**
  *
  * @author ASUS

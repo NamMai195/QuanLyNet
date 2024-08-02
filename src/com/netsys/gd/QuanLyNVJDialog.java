@@ -47,8 +47,6 @@ private List<nhanVien> Listnv=dao.selectAll();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblnv = new javax.swing.JTable();
-        jTextField4 = new javax.swing.JTextField();
-        jButton6 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -134,12 +132,7 @@ private List<nhanVien> Listnv=dao.selectAll();
             tblnv.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 870, 530));
-        jPanel3.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 540, 30));
-
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/netsys/icon_app/Search.png"))); // NOI18N
-        jButton6.setText("Seach");
-        jPanel3.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 10, -1, -1));
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 870, 570));
 
         jTabbedPane1.addTab("Danh Sách", jPanel3);
 
@@ -545,7 +538,6 @@ private List<nhanVien> Listnv=dao.selectAll();
     private javax.swing.JButton butxoa;
     private javax.swing.JRadioButton cbbncv;
     private javax.swing.JRadioButton cbbtp;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
@@ -562,7 +554,6 @@ private List<nhanVien> Listnv=dao.selectAll();
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JLabel laberhinh;
     private javax.swing.JTable tblnv;
     private javax.swing.JTextField txthinh;

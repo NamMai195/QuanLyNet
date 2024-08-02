@@ -4,6 +4,7 @@
  */
 package com.netsys.gd;
 
+import com.netsys.dao.BillTaDao;
 import com.netsys.dao.ThucAnDao;
 import com.netsys.entity.Bill_food;
 import com.netsys.entity.thuan;
@@ -20,7 +21,7 @@ public class BooKFoodJDialog extends javax.swing.JDialog {
 private thuan ta=new thuan();
 private ThucAnDao dao=new ThucAnDao();
 private List<thuan> list=dao.selectAll();
-private Bill_food bill=new Bill_food();
+
 private void fillTable() {
         DefaultTableModel model=(DefaultTableModel) tblthucan.getModel();
         model.setRowCount(0);
@@ -80,7 +81,7 @@ void soluong(){
         initComponents();
         this.setLocationRelativeTo(null);
         fillTable();
-//        txtmabill.setText(""+LuuBill.bill.getMabill());
+        txtmabill.setText(""+LuuBill.bill.getMabill());
     }
 
     /**
@@ -366,10 +367,45 @@ void soluong(){
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
        if(TBBOX.confirm(this, "Chắc Chắn Đặt Hàng")){
-           if(soluon)
+           int soluong=list.get(tblthucan.getSelectedRow()).getSoLuong();
+           int soluongmua=(int) txtsoluong.getValue();
+           if(soluongmua>soluong){
+               TBBOX.alert(this, "Số Lượng trong kho không còn đủ");
+           }
+           else{
+               them();
+           }
        }
     }//GEN-LAST:event_jButton2ActionPerformed
-
+private Bill_food bill=new Bill_food();
+private BillTaDao billdao=new BillTaDao();
+    void them(){
+        try {
+            int soluongmua=(int) txtsoluong.getValue();
+            bill.setMabill(Integer.parseInt(txtmabill.getText()));
+            bill.setMata(list.get(tblthucan.getSelectedRow()).getMata());
+            bill.setPrice(Double.parseDouble(txtthanhtien.getText()));
+            bill.setSoluong(soluongmua);
+            bill.setLoai(true);
+            billdao.insert(bill);
+            TBBOX.alert(this, "Thành Công");
+            thuan thucan=new thuan();
+            thucan=dao.selectByid(list.get(tblthucan.getSelectedRow()).getMata());
+            thuan cnta=new thuan();
+            cnta.setSoLuong(thucan.getSoLuong()-soluongmua);
+            cnta.setMata(thucan.getMata());
+            cnta.setGia(thucan.getGia());
+            cnta.setHinh(thucan.getHinh());
+            cnta.setTenta(thucan.getTenta());
+            cnta.setLoai(thucan.isLoai());
+            dao.update(cnta);
+            fillTable();
+            this.dispose();
+        } catch (Exception e) {
+            TBBOX.alert(this, "Đã xãy ra lỗi");
+            System.out.println(e);
+        }
+}
     /**
      * @param args the command line arguments
      */

@@ -4,6 +4,21 @@
  */
 package com.netsys.gd;
 
+import com.netsys.dao.BillMayTinhDao;
+import com.netsys.dao.BillTaDao;
+import com.netsys.dao.MayTinhDao;
+import com.netsys.dao.ThucAnDao;
+import com.netsys.entity.Bill_food;
+import com.netsys.entity.bill_pc;
+import com.netsys.entity.mayTinh;
+import com.netsys.entity.thuan;
+import com.netsys.utlis.LuuBill;
+import com.netsys.utlis.TBBOX;
+import com.netsys.utlis.XDate;
+import java.util.Date;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Nam
@@ -17,7 +32,82 @@ public class ChiTietHDJDialog extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
+        loadbilltable();
     }
+ BillMayTinhDao billmtdao=new BillMayTinhDao();
+    List<bill_pc> listbillmt=billmtdao.selectAll();
+    MayTinhDao mtdao=new MayTinhDao();
+void loadbilltable(){
+    DefaultTableModel model=(DefaultTableModel) tbl.getModel();
+    model.setRowCount(0);
+     try {
+            List<bill_pc> list=billmtdao.selectAll();
+            for(bill_pc b:list){
+                if(b.getMabill()==LuuBill.bill.getMabill()){
+                 mayTinh m=mtdao.selectByid(b.getMamt());
+                 Date vao=b.getStart();
+                Date ra=XDate.now();
+                long minis=ra.getTime()-vao.getTime();
+                long minutes = minis / (1000 * 60);
+                double hours = minutes / 60.0;
+                double soGioTinhTien;
+        if (minutes % 60 > 30) {
+            soGioTinhTien = Math.ceil(hours);
+        } else {
+            soGioTinhTien = Math.floor(hours) + 0.5;
+        }
+     
+                Object[] row={b.getMabill()+"-"+b.getMamt(),b.isLoai()?"Đồ Ăn":"Máy Tính",m.getTientheogio(),soGioTinhTien,b.getPrice()};
+                model.addRow(row); 
+                }
+               
+            }
+            BillTaDao billtad=new BillTaDao();
+            List<Bill_food> listbillfood=billtad.selectAll();
+            for(Bill_food bta:listbillfood){
+                 if(bta.getMabill()==LuuBill.bill.getMabill()){
+                     ThucAnDao thucandao=new ThucAnDao();
+                thuan ta=thucandao.selectByid(bta.getMata());
+                Object[] row={bta.getMabill()+"-"+bta.getMata(),bta.isLoai()?"Đồ Ăn":"Máy Tính",ta.getGia(),bta.getSoluong(),bta.getPrice(),};
+                model.addRow(row);
+                 }
+                
+            }
+            txttong.setText(LuuBill.bill.getTong().toString());
+        } catch (Exception e) {
+            TBBOX.alert(this, "Lỗi Truy Vấn");
+            System.out.println(e);
+        }
+    
+}
+    void filltong(){
+    try {
+        double tong = 0;
+            List<bill_pc> list=billmtdao.selectAll();
+            for(bill_pc b:list){
+                if(b.getMabill()==LuuBill.bill.getMabill()){
+                 mayTinh m=mtdao.selectByid(b.getMamt());
+//                tong+=b.getPrice();
+                
+                }
+               
+            }
+            BillTaDao billtad=new BillTaDao();
+            List<Bill_food> listbillfood=billtad.selectAll();
+            for(Bill_food bta:listbillfood){
+                 if(bta.getMabill()==LuuBill.bill.getMabill()){
+                     ThucAnDao thucandao=new ThucAnDao();
+                thuan ta=thucandao.selectByid(bta.getMata());
+                tong+=bta.getPrice();
+                 }
+               
+               
+            }
+        } catch (Exception e) {
+            TBBOX.alert(this, "Lỗi Truy Vấn");
+            System.out.println(e);
+        }
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -30,16 +120,16 @@ public class ChiTietHDJDialog extends javax.swing.JDialog {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbl = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txttong = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -50,7 +140,7 @@ public class ChiTietHDJDialog extends javax.swing.JDialog {
                 "Mã Đơn Hàng", "Loại", "Giá ", "Số Lượng", "Tổng"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tbl);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("Tổng:");
@@ -65,7 +155,7 @@ public class ChiTietHDJDialog extends javax.swing.JDialog {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txttong, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -79,7 +169,7 @@ public class ChiTietHDJDialog extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txttong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
@@ -159,7 +249,7 @@ public class ChiTietHDJDialog extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTable tbl;
+    private javax.swing.JTextField txttong;
     // End of variables declaration//GEN-END:variables
 }

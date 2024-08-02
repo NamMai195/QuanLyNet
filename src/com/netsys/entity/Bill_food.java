@@ -9,17 +9,17 @@ package com.netsys.entity;
  * @author Nam
  */
 public class Bill_food {
-    private int mabill;
+    private Integer mabill;
     private String mata;
     private int soluong;
-    private int price;
+    private Double price;
     private boolean loai;
 
-    public int getMabill() {
+    public Integer getMabill() {
         return mabill;
     }
 
-    public void setMabill(int mabill) {
+    public void setMabill(Integer mabill) {
         this.mabill = mabill;
     }
 
@@ -39,11 +39,11 @@ public class Bill_food {
         this.soluong = soluong;
     }
 
-    public int getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 

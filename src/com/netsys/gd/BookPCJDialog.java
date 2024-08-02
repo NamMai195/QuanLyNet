@@ -179,6 +179,15 @@ private BillMayTinhDao dao=new BillMayTinhDao();
         bill.setLoai(false);
         dao.insert(bill);
         TBBOX.alert(this, "Nhập Thành Công");
+        MayTinhDao mtdao=new MayTinhDao();
+        mayTinh mt= new mayTinh();
+        mt.setMamt(txtmamt.getText());
+        mt.setTenmt(txttenmt.getText());
+        mt.setTientheogio(LUUMT.user.getTientheogio());
+        mt.setStatus("đang sử dụng");
+//        mayTinh cnmt=new mayTinh();
+//        cnmt.setMamt();
+        mtdao.update(mt);
         this.dispose();
         } catch (Exception e) {
             TBBOX.alert(this, "Đã Xãy Ra Lỗi");
