@@ -254,6 +254,11 @@ void xetuser(){
         jMenu5.setText("Hệ Thống");
 
         jMenuItem3.setText("Đăng Xuất");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu5.add(jMenuItem3);
 
         menudmk.setText("Đổi Mật Khẩu");
@@ -420,6 +425,22 @@ void xetuser(){
     private void buttaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttaActionPerformed
     this.openTHUCAN();
     }//GEN-LAST:event_buttaActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        if(TBBOX.confirm(this,"Đăng Xuất")){
+            Auth.clear();
+        if(Auth.isLogin()==false){
+            TBBOX.alert(this, "BẠN Đã Đăng Xuất");
+            if(TBBOX.confirm(this,"Bạn có muốn đăng nhập")){
+                new DangnhapJDialog(this, true).setVisible(true);
+                xetuser();
+            }
+            else{
+                System.exit(0);
+            }
+        } 
+        }
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
      * @param args the command line arguments

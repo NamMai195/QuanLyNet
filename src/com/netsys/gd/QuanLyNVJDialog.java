@@ -6,6 +6,7 @@ package com.netsys.gd;
 
 import com.netsys.dao.NhanVienDAO;
 import com.netsys.entity.nhanVien;
+import com.netsys.utlis.Auth;
 import com.netsys.utlis.TBBOX;
 import java.util.List;
 import javax.swing.ImageIcon;
@@ -27,8 +28,22 @@ private List<nhanVien> Listnv=dao.selectAll();
         initComponents();
         this.setLocationRelativeTo(null);
         init();
-        
+        xetuser();
     }
+      void xetuser(){
+     if(Auth.isManager()){
+         
+     }
+     else
+     {
+     butxoa.setEnabled(false);
+     butsua.setEnabled(false);
+     btnf.setEnabled(false);
+     btnff.setEnabled(false);
+     btnn.setEnabled(false);
+     btnnn.setEnabled(false);
+ }
+ }
       
     /**
      * This method is called from within the constructor to initialize the form.

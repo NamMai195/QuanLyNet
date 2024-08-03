@@ -6,6 +6,7 @@ package com.netsys.gd;
 
 import com.netsys.dao.ThucAnDao;
 import com.netsys.entity.thuan;
+import com.netsys.utlis.Auth;
 import com.netsys.utlis.TBBOX;
 import java.util.List;
 import javax.swing.ImageIcon;
@@ -29,8 +30,22 @@ private List<thuan> listta=dao.selectAll();
         initComponents();
         this.setLocationRelativeTo(null);
         init();
+        xetuser();
     }
-
+  void xetuser(){
+     if(Auth.isManager()){
+         
+     }
+     else
+     {
+     butsua.setEnabled(false);
+     butxoa.setEnabled(false);
+     f.setEnabled(false);
+     ff.setEnabled(false);
+     n.setEnabled(false);
+     nn.setEnabled(false);
+ }
+ }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

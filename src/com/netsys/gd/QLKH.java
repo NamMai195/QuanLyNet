@@ -2,6 +2,7 @@ package com.netsys.gd;
 
 import com.netsys.dao.KhachHangDao;
 import com.netsys.entity.khachhang;
+import com.netsys.utlis.Auth;
 import com.netsys.utlis.TBBOX;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -26,8 +27,22 @@ private List<khachhang> Listkh=dao.selectAll();
         initComponents();
         this.setLocationRelativeTo(null);
         init();
+        xetuser();
     }
-
+  void xetuser(){
+     if(Auth.isManager()){
+         
+     }
+     else
+     {
+     butsua.setEnabled(false);
+     butxoa.setEnabled(false);
+     f.setEnabled(false);
+     ff.setEnabled(false);
+     n.setEnabled(false);
+     nn.setEnabled(false);
+ }
+ }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
