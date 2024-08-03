@@ -64,6 +64,7 @@ void xetuser(){
         jMenuItem1 = new javax.swing.JMenuItem();
         jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
         jMenu4 = new javax.swing.JMenu();
+        jButton2 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         butnhanvien = new javax.swing.JButton();
         butmt = new javax.swing.JButton();
@@ -89,6 +90,7 @@ void xetuser(){
         menunv = new javax.swing.JMenuItem();
         menuta = new javax.swing.JMenuItem();
         menumt = new javax.swing.JMenuItem();
+        menuqr = new javax.swing.JMenuItem();
         btndoanhthu = new javax.swing.JMenu();
         menuDT = new javax.swing.JMenuItem();
         menuGSD = new javax.swing.JMenuItem();
@@ -113,6 +115,8 @@ void xetuser(){
         jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
 
         jMenu4.setText("jMenu4");
+
+        jButton2.setText("jButton2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 204, 204));
@@ -219,6 +223,11 @@ void xetuser(){
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/netsys/icon_app/chuong.png"))); // NOI18N
         jButton1.setText("Thông Tin");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -304,6 +313,14 @@ void xetuser(){
             }
         });
         jMenu6.add(menumt);
+
+        menuqr.setText("QR_KH");
+        menuqr.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuqrActionPerformed(evt);
+            }
+        });
+        jMenu6.add(menuqr);
 
         jMenuBar2.add(jMenu6);
 
@@ -442,6 +459,14 @@ void xetuser(){
         }
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       new ThongTinDialog(this, true).setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void menuqrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuqrActionPerformed
+       new TaoQRDialog(this, true).setVisible(true);
+    }//GEN-LAST:event_menuqrActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -487,6 +512,7 @@ void xetuser(){
     private javax.swing.JButton butta;
     private javax.swing.Box.Filler filler1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -515,6 +541,7 @@ void xetuser(){
     private javax.swing.JMenuItem menugt;
     private javax.swing.JMenuItem menumt;
     private javax.swing.JMenuItem menunv;
+    private javax.swing.JMenuItem menuqr;
     private javax.swing.JMenuItem menuta;
     private javax.swing.JMenuItem menuthoat;
     private javax.swing.JLabel txttrangthai;

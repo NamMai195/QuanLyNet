@@ -367,13 +367,13 @@ public class ThongKeDiaLog extends javax.swing.JDialog {
                 }
             }
             if(i==1){
-                List<Object[]> list=dao.getRevenueByMonth();
+                List<Object[]> list=dao.getFoodSoldByMonth();
                 for(Object[] row:list){
                     model.addRow(new Object[]{row[0]+"-"+row[1],row[2],row[3],row[4],row[5]});
                 }
             }
             if(i==2){
-                List<Object[]> list=dao.getRevenueByYear();
+                List<Object[]> list=dao.getFoodSoldByYear();
                 for(Object[] row:list){
                     model.addRow(new Object[]{row[0],row[1],row[2],row[3],row[4]});
                 }

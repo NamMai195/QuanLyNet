@@ -19,7 +19,7 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class QRCodeGenerator {
+public class TaoQR {
     private static final String QR_CODE_IMAGE_PATH = "D:\\HOCTAP\\QR_QLN\\MKH_";
 
     // Tạo mã QR cho mã khách hàng
@@ -57,7 +57,7 @@ public class QRCodeGenerator {
                 String qrCodeFilePath = QR_CODE_IMAGE_PATH + maKhachHang + ".png";
 
                 // Tạo mã QR mới
-                generateQRCodeImage(maKhachHang, 350, 350, qrCodeFilePath);
+                generateQRCodeImage(maKhachHang, 100, 100, qrCodeFilePath);
                 System.out.println("Mã QR cho " + maKhachHang + " đã được tạo và lưu tại: " + qrCodeFilePath);
 
                 // Chèn hoặc cập nhật đường dẫn mã QR vào cơ sở dữ liệu
@@ -87,7 +87,7 @@ public class QRCodeGenerator {
             }
 
             // Tạo mã QR mới
-            generateQRCodeImage(maKhachHang, 350, 350, qrCodeFilePath);
+            generateQRCodeImage(maKhachHang, 100, 100, qrCodeFilePath);
             System.out.println("Mã QR cho " + maKhachHang + " đã được tạo và lưu tại: " + qrCodeFilePath);
 
             // Cập nhật vào cơ sở dữ liệu
@@ -126,7 +126,7 @@ public class QRCodeGenerator {
         // Tạo tất cả mã QR
         generateAllQRCodes();
 
-        // Hoặc tạo/ cập nhật mã QR cho mã khách hàng cụ thể
-        // generateOrUpdateQRCodeForCustomer("MKH001"); // Thay "MKH001" bằng mã khách hàng cần tạo/ cập nhật
+//        // Hoặc tạo/ cập nhật mã QR cho mã khách hàng cụ thể
+//        // generateOrUpdateQRCodeForCustomer("MKH001"); // Thay "MKH001" bằng mã khách hàng cần tạo/ cập nhật
     }
 }
