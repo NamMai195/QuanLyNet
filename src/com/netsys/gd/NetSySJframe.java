@@ -4,6 +4,7 @@
  */
 package com.netsys.gd;
 
+import com.netsys.utlis.Auth;
 import com.netsys.utlis.TBBOX;
 import java.awt.Button;
 import java.awt.Image;
@@ -25,8 +26,27 @@ public class NetSySJframe extends javax.swing.JFrame {
         new ChaoJDialog(this, true).setVisible(true);
         new DangnhapJDialog(this, true).setVisible(true);
         new ChaoJDialog(this, true).setVisible(true);
+        xetuser();
+        xetvaitro();
     }
-
+void xetuser(){
+        if(Auth.isLogin()==false){
+            TBBOX.alert(this, "BẠN CHƯA ĐĂNG NHẬP");
+            System.exit(0);
+        }
+        xetvaitro();
+        
+    }
+    void xetvaitro(){
+        if(Auth.isManager()){
+            txttrangthai.setText("Trưởng Phòng");
+        }
+        else{
+            txttrangthai.setText("Nhân Viên");
+            btndoanhthu.setEnabled(false);
+            
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -57,7 +77,7 @@ public class NetSySJframe extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        txttrangthai = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jMenuBar2 = new javax.swing.JMenuBar();
@@ -69,7 +89,7 @@ public class NetSySJframe extends javax.swing.JFrame {
         menunv = new javax.swing.JMenuItem();
         menuta = new javax.swing.JMenuItem();
         menumt = new javax.swing.JMenuItem();
-        jMenu7 = new javax.swing.JMenu();
+        btndoanhthu = new javax.swing.JMenu();
         menuDT = new javax.swing.JMenuItem();
         menuGSD = new javax.swing.JMenuItem();
         jMenu8 = new javax.swing.JMenu();
@@ -190,8 +210,8 @@ public class NetSySJframe extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/netsys/icon_app/Alarm.png"))); // NOI18N
         jLabel3.setText("Thời Gian:");
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel4.setText("Trưởng Phòng.");
+        txttrangthai.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txttrangthai.setText("Trưởng Phòng.");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel5.setText("00.00.00");
@@ -208,7 +228,7 @@ public class NetSySJframe extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
+                .addComponent(txttrangthai)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -223,7 +243,7 @@ public class NetSySJframe extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(jLabel5)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
+                    .addComponent(txttrangthai)
                     .addComponent(jLabel1))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -282,7 +302,7 @@ public class NetSySJframe extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenu6);
 
-        jMenu7.setText("Thống Kê");
+        btndoanhthu.setText("Thống Kê");
 
         menuDT.setText("Doanh Thu");
         menuDT.addActionListener(new java.awt.event.ActionListener() {
@@ -290,7 +310,7 @@ public class NetSySJframe extends javax.swing.JFrame {
                 menuDTActionPerformed(evt);
             }
         });
-        jMenu7.add(menuDT);
+        btndoanhthu.add(menuDT);
 
         menuGSD.setText("Giờ Sử Dụng");
         menuGSD.addActionListener(new java.awt.event.ActionListener() {
@@ -298,9 +318,9 @@ public class NetSySJframe extends javax.swing.JFrame {
                 menuGSDActionPerformed(evt);
             }
         });
-        jMenu7.add(menuGSD);
+        btndoanhthu.add(menuGSD);
 
-        jMenuBar2.add(jMenu7);
+        jMenuBar2.add(btndoanhthu);
 
         jMenu8.setText("Trợ Giúp");
 
@@ -438,6 +458,7 @@ public class NetSySJframe extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu btndoanhthu;
     private javax.swing.JButton buthoadon;
     private javax.swing.JButton butkh;
     private javax.swing.JButton butmt;
@@ -449,7 +470,6 @@ public class NetSySJframe extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -457,7 +477,6 @@ public class NetSySJframe extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu7;
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
@@ -477,6 +496,7 @@ public class NetSySJframe extends javax.swing.JFrame {
     private javax.swing.JMenuItem menunv;
     private javax.swing.JMenuItem menuta;
     private javax.swing.JMenuItem menuthoat;
+    private javax.swing.JLabel txttrangthai;
     // End of variables declaration//GEN-END:variables
     private void openDMK() {
       new DoimatkhauJDialog(this, true).setVisible(true);

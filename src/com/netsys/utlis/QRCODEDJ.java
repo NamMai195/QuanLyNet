@@ -280,7 +280,7 @@ public class QRCODEDJ extends javax.swing.JDialog implements Runnable,ThreadFact
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
        if(TBBOX.confirm(this, "Chắc Chắn")){
-           ktthoat=false;
+           
              if(kttt()){
             KhachHangDao dao=new KhachHangDao();
         khachhang kh=dao.selectByid(txtresut.getText());
@@ -288,6 +288,7 @@ public class QRCODEDJ extends javax.swing.JDialog implements Runnable,ThreadFact
             LUUKH.user=kh;
             TBBOX.alert(this,"Lưu Thành Công Vui Lòng Thoát Để Tiếp Tục Tạo Bill");
             this.dispose();
+            ktthoat=false;
         }
         else{
             TBBOX.alert(this, "Khách Hàng Không Tồn Tại Hoặc Lỗi QR");

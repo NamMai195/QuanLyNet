@@ -229,10 +229,10 @@ void loadbilltable(){
         tbldatu = new javax.swing.JTable();
         butxoasp = new javax.swing.JButton();
         butcapnhatsp = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
+        butlammoihd = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         btntrangthai = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
+        butta = new javax.swing.JButton();
         jPanel10 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txttong = new javax.swing.JTextField();
@@ -258,7 +258,7 @@ void loadbilltable(){
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         cbbtttt = new javax.swing.JComboBox<>();
-        jButton14 = new javax.swing.JButton();
+        butht = new javax.swing.JButton();
         jButton15 = new javax.swing.JButton();
         txtmanvtt = new javax.swing.JTextField();
         txtmabilltt = new javax.swing.JTextField();
@@ -986,11 +986,11 @@ void loadbilltable(){
             }
         });
 
-        jButton9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton9.setText("Làm Mới");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        butlammoihd.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        butlammoihd.setText("Làm Mới");
+        butlammoihd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                butlammoihdActionPerformed(evt);
             }
         });
 
@@ -1001,7 +1001,7 @@ void loadbilltable(){
             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 531, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton9)
+                .addComponent(butlammoihd)
                 .addGap(27, 27, 27)
                 .addComponent(butcapnhatsp)
                 .addGap(18, 18, 18)
@@ -1017,7 +1017,7 @@ void loadbilltable(){
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(butxoasp)
                     .addComponent(butcapnhatsp)
-                    .addComponent(jButton9))
+                    .addComponent(butlammoihd))
                 .addGap(366, 366, 366))
         );
 
@@ -1042,12 +1042,12 @@ void loadbilltable(){
                 .addGap(0, 9, Short.MAX_VALUE))
         );
 
-        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/netsys/icon_app/thuan.png"))); // NOI18N
-        jButton5.setText("Thức Ăn");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        butta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        butta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/netsys/icon_app/thuan.png"))); // NOI18N
+        butta.setText("Thức Ăn");
+        butta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                buttaActionPerformed(evt);
             }
         });
 
@@ -1128,7 +1128,7 @@ void loadbilltable(){
                         .addGap(0, 8, Short.MAX_VALUE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
-                        .addComponent(jButton5)
+                        .addComponent(butta)
                         .addGap(50, 50, 50)
                         .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
@@ -1154,7 +1154,7 @@ void loadbilltable(){
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton5)
+                            .addComponent(butta)
                             .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(31, 31, 31)
                         .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1178,6 +1178,11 @@ void loadbilltable(){
         jPanel14.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Danh Sách Bill", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
 
         jTabbedPane2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jTabbedPane2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTabbedPane2MouseClicked(evt);
+            }
+        });
 
         tbltrangthaibill.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1278,11 +1283,11 @@ void loadbilltable(){
 
         cbbtttt.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Chưa thanh toán", "Đã  thanh toán" }));
 
-        jButton14.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton14.setText("Hoàn Thành ");
-        jButton14.addActionListener(new java.awt.event.ActionListener() {
+        butht.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        butht.setText("Hoàn Thành ");
+        butht.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton14ActionPerformed(evt);
+                buthtActionPerformed(evt);
             }
         });
 
@@ -1352,7 +1357,7 @@ void loadbilltable(){
                 .addContainerGap(141, Short.MAX_VALUE))
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(butht, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1392,7 +1397,7 @@ void loadbilltable(){
                     .addComponent(cbbtttt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton14)
+                    .addComponent(butht)
                     .addComponent(jButton15)
                     .addComponent(jButton2))
                 .addGap(34, 34, 34))
@@ -1470,12 +1475,12 @@ void loadbilltable(){
         gangttsk();
     }//GEN-LAST:event_jButton196jButton26ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void buttaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttaActionPerformed
         new BooKFoodJDialog(null, true).setVisible(true);
         fillTable();
         loadbilltable();
         filltong();
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_buttaActionPerformed
 
     private void may1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_may1ActionPerformed
         LUUMT.user=listmt.get(0);
@@ -1490,8 +1495,13 @@ void loadbilltable(){
     }//GEN-LAST:event_txtmabillttActionPerformed
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-       LuuBill.bill=dao.selectByid(Integer.parseInt(txtmabilltt.getText()));
+      if(cbbtttt.getSelectedIndex()==0){
+          TBBOX.alert(this, "bạn Cần Thanh toán truoc khi coi chi tiết hóa đơn");
+      }
+      else{
+           LuuBill.bill=dao.selectByid(Integer.parseInt(txtmabilltt.getText()));
         new ChiTietHDJDialog(null,true).setVisible(true);
+      }
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void txtmanvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtmanvActionPerformed
@@ -1583,13 +1593,22 @@ void loadbilltable(){
            btntrangthai.setText("Đã Có Mã Bill:"+LuuBill.bill.getMabill());
            ktbill();
            loadbilltable();
+            loattbill();
        }
        else{
+           if(!TBBOX.confirm(this, "Bạn Cần Cập Nhật Bill đúng không")){
            ktbill();
            TBBOX.alert(this, "Bạn Cần Tạo Bill Hoặc Chọn Bill Trước Khi Mua Hàng");
+           }
+           else{
+               ktbill();
+               TBBOX.alert(this, "Mời Bạn tiếp tục");
+            loattbill();
+           loattbilldtt();
+           }
+           
        }
-       loattbill();
-       loattbilldtt();
+       
        
     }//GEN-LAST:event_jTabbedPane1MouseClicked
 void ktbill(){
@@ -1597,9 +1616,19 @@ void ktbill(){
         for(JButton b:but){
             b.setEnabled(false);
         }
+        butlammoihd.setEnabled(false);
+        butcapnhatsp.setEnabled(false);
+        butxoasp.setEnabled(false);
+        butxacnhan.setEnabled(false);
+        butta.setEnabled(false);
     }
     else{
         gangttsk();
+        butlammoihd.setEnabled(true);
+        butcapnhatsp.setEnabled(true);
+        butxoasp.setEnabled(true);
+        butxacnhan.setEnabled(true);
+        butta.setEnabled(true);
     }
 }
     private void may6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_may6ActionPerformed
@@ -1793,12 +1822,12 @@ void ktbill(){
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+    private void butlammoihdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butlammoihdActionPerformed
        ADDLIST();
         gangttsk();
        loadbilltable();
        filltong();
-    }//GEN-LAST:event_jButton9ActionPerformed
+    }//GEN-LAST:event_butlammoihdActionPerformed
 
     private void butcapnhatspActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butcapnhatspActionPerformed
       if(TBBOX.confirm(this, "Chắc Chắn Cập Nhật")){
@@ -1833,13 +1862,25 @@ void ktbill(){
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        hoanthanh();
-    }//GEN-LAST:event_jButton14ActionPerformed
+    private void buthtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buthtActionPerformed
+       if(TBBOX.confirm(this, "Chắc Chắn Hoành Thành")){
+           if(kttt_hoanthanh()){
+               LuuBill.bill=dao.selectByid(Integer.parseInt(txtmabilltt.getText()));
+                hoanthanh();
+                loadbilltable();
+                gangttsk();
+                
+           }
+       }
+    }//GEN-LAST:event_buthtActionPerformed
 
     private void tbltrangthaibilldttMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbltrangthaibilldttMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_tbltrangthaibilldttMouseClicked
+
+    private void jTabbedPane2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane2MouseClicked
+        loattbilldtt();
+    }//GEN-LAST:event_jTabbedPane2MouseClicked
 void updatebill(){
     try {
         BillDao bildao=new BillDao();
@@ -1858,7 +1899,8 @@ void updatebill(){
     }
 }
     void updatesl(){
-    for(int i=0;i<tbldatu.getRowCount();i++){
+        try {
+             for(int i=0;i<tbldatu.getRowCount();i++){
         if(tbldatu.getValueAt(i,5).equals("Đồ Ăn")){
             try {
                 int vttru=String.valueOf(tbldatu.getValueAt(i,0)).indexOf("-");
@@ -1884,15 +1926,21 @@ void updatebill(){
 
         }
         else{
-            TBBOX.alert(this, "Không được cập nhật số lượng máy tính");
+            TBBOX.alert(this, "LƯU Ý Không được cập nhật số lượng máy tính");
         }
-        TBBOX.alert(this, "cập nhật thành công");
-       
     }
+    TBBOX.alert(this, "cập nhật thành công");
+        } catch (Exception e) {
+            TBBOX.alert(this, "đã xảy ra lỗi");
+        }
+    
 }
 void xoatamtbill(){
     if(TBBOX.confirm(this,"Bạn chắc chắn muốn xóa")){
            try {
+               
+
+                   System.out.println(tbldatu.getSelectedRows());
              for(int row:tbldatu.getSelectedRows()){
                 if(tbldatu.getValueAt(row, 5).equals("Máy Tính")){
                    int vttru=String.valueOf(tbldatu.getValueAt(row,0)).indexOf("-");
@@ -1916,9 +1964,11 @@ void xoatamtbill(){
                 }
             }
              TBBOX.alert(this,"Xóa thành công");
-             filltong();
-             loadbilltable();
-            
+               ADDLIST();
+                  gangttsk();
+                    loadbilltable();
+                 filltong();
+                  
         } catch (Exception e) {
             TBBOX.alert(this, "đã xãy ra lỗi");
                System.out.println(e);
@@ -2011,8 +2061,11 @@ void xoatamtbill(){
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btntrangthai;
     private javax.swing.JButton butcapnhatsp;
+    private javax.swing.JButton butht;
+    private javax.swing.JButton butlammoihd;
     private javax.swing.JButton butqr;
     private javax.swing.JButton butsua;
+    private javax.swing.JButton butta;
     private javax.swing.JButton butthem;
     private javax.swing.JButton butxacnhan;
     private javax.swing.JButton butxoa;
@@ -2020,7 +2073,6 @@ void xoatamtbill(){
     private javax.swing.JComboBox<String> cbbloaikh;
     private javax.swing.JComboBox<String> cbbtttt;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton185;
     private javax.swing.JButton jButton186;
@@ -2034,8 +2086,6 @@ void xoatamtbill(){
     private javax.swing.JButton jButton197;
     private javax.swing.JButton jButton198;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2261,12 +2311,12 @@ void xoatamtbill(){
         model.setRowCount(0);
         try {
             List<Bill> list=dao.selectAll();
+            
             for(Bill b:list){
-                
+                if(!b.isTrangthai()){
                      Object[] row={b.getMabill(),b.getMakh(),b.getManv(),XDate.toString(b.getTglap(),"dd-MM-yyyy HH:mm:ss"),b.getTong(),b.isTrangthai()};
                 model.addRow(row);
-                
-               
+                }
             }
         } catch (Exception e) {
             TBBOX.alert(this, "Lỗi Truy Vấn");
@@ -2292,7 +2342,12 @@ void xoatamtbill(){
     }
     private void displaytt(int i){
         try {
-            Bill b=listbill.get(i);
+            for(Bill bill:listbill){
+            if(!bill.isTrangthai()){
+                billvuatao.add(bill);
+            }
+        }
+            Bill b=billvuatao.get(i);
             if(b.isTrangthai()){
                 txtmabilltt.setText(""+b.getMabill());
         txtmakhtt.setText(b.getMakh());
@@ -2313,7 +2368,7 @@ void xoatamtbill(){
             }
         }
         if(!b.getMakh().equalsIgnoreCase("0")){
-            txttongtientt.setText(String.valueOf(tongta*0.85));
+            txttongtientt.setText(String.valueOf(tongta));
         }
         else{
             txttongtientt.setText(String.valueOf(tongta));
@@ -2365,6 +2420,12 @@ void xoatamtbill(){
         else{
            cbbtttt.setSelectedIndex(0);
         }}
+            if(b.isTrangthai()){
+                butht.setEnabled(false);
+            }
+            else{
+                butht.setEnabled(true);
+            }
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -2385,10 +2446,18 @@ void xoatamtbill(){
         b.setManv(txtmanvtt.getText());
         b.setTglap(XDate.toDate(txttgbdtt.getText(), "yyyy-MM-dd HH:mm:ss"));
         bill_pc billpc=billmtdao.selectByid(Integer.parseInt(txtmabilltt.getText()));
+        double tong=0;
+        if(billpc!=null){
+            
         billpc.setEnd(XDate.now());
         billpc.setPrice(Double.parseDouble(txttongtientt.getText()));
         billmtdao.update(billpc);
-        double tong=b.getTong();
+        mayTinh mt=mtdao.selectByid(billpc.getMamt());
+        mt.setStatus("trống");
+        mtdao.update(mt);
+         tong=b.getTong();
+        }
+        
         b.setTong(Double.parseDouble(txttongtientt.getText())+tong);
         if(cbbtttt.getSelectedIndex()==0){
             b.setTrangthai(false);
@@ -2396,11 +2465,63 @@ void xoatamtbill(){
         else{
             b.setTrangthai(true);
         }
+        //
+       if(TBBOX.confirm(this, "Bạn Muốn Thanh Toán Bằng thẻ thành viên")){
+            if(!b.getMakh().equals("0")){
+            KhachHangDao khdao=new KhachHangDao();
+            khachhang kh=khdao.selectByid(b.getMakh());
+            if(kh.getTienconlai()<(Double.parseDouble(txttongtientt.getText())+tong)){
+                TBBOX.alert(this, "Số tiền còn lại không đủ để thanh toán");
+            }
+            else{
+                kh.setTienconlai(kh.getTienconlai()-(Double.parseDouble(txttongtientt.getText())+tong));
+            khdao.update(kh);
+            }
+        }
+            else{
+                TBBOX.alert(this, "bạn không có thẻ thành viên");
+                return;
+            }
+       }
         dao.update(b);
         loattbill();
         listbill=dao.selectAll();
-        mayTinh mt=mtdao.selectByid(billpc.getMamt());
-        mt.setStatus("trống");
-        mtdao.update(mt);
+        TBBOX.alert(this, "thanh toán thành công");
+ 
+        
+    }
+        private boolean kttt_hoanthanh(){
+        if(txtmabilltt.getText().equals("") ||txtmabilltt.getText()==null){
+            TBBOX.alert(this, "Thông Tin Không Được Để Trống");
+            return false;
+        }
+         if(txtmakhtt.getText().equals("") ||txtmabilltt.getText()==null){
+            TBBOX.alert(this, "Thông Tin Không Được Để Trống");
+            
+            return false;
+        }
+          if(txtmanvtt.getText().equals("") ||txtmanvtt.getText()==null){
+            TBBOX.alert(this, "Thông Tin Không Được Để Trống");
+         
+            return false;
+        }
+           if(txttgbdtt.getText().equals("") ||txttgbdtt.getText()==null){
+            TBBOX.alert(this, "Thông Tin Không Được Để Trống");
+          
+            return false;
+        }
+            if(txttgkttt.getText().equals("") ||txttgkttt.getText()==null){
+            TBBOX.alert(this, "Thông Tin Không Được Để Trống");
+          
+            return false;
+        }
+            if(txttongtientt.getText().equals("") ||txttongtientt.getText()==null){
+            TBBOX.alert(this, "Thông Tin Không Được Để Trống");
+          
+            return false;
+        }
+           else{
+               return true;
+           }
     }
 }

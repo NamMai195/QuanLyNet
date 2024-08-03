@@ -46,7 +46,7 @@ void loadbilltable(){
                 if(b.getMabill()==LuuBill.bill.getMabill()){
                  mayTinh m=mtdao.selectByid(b.getMamt());
                  Date vao=b.getStart();
-                Date ra=XDate.now();
+                Date ra=b.getEnd();
                 long minis=ra.getTime()-vao.getTime();
                 long minutes = minis / (1000 * 60);
                 double hours = minutes / 60.0;
@@ -57,7 +57,7 @@ void loadbilltable(){
             soGioTinhTien = Math.floor(hours) + 0.5;
         }
      
-                Object[] row={b.getMabill()+"-"+b.getMamt(),b.isLoai()?"Đồ Ăn":"Máy Tính",m.getTientheogio(),soGioTinhTien,b.getPrice()};
+                Object[] row={b.getMabill()+"-"+b.getMamt(),b.isLoai()?"Đồ Ăn":"Máy Tính",m.getTientheogio(),soGioTinhTien,m.getTientheogio()*soGioTinhTien};
                 model.addRow(row); 
                 }
                
